@@ -35,6 +35,16 @@ export default function Login() {
     router.push('/dashboard')
   }
 
+  const handleFacebookLogin = () => {
+    // Mock login - redirect to dashboard
+    router.push('/dashboard')
+  }
+
+  const handleXLogin = () => {
+    // Mock login - redirect to dashboard
+    router.push('/dashboard')
+  }
+
 
   return (
     <>
@@ -69,28 +79,40 @@ export default function Login() {
             <div className="space-y-4">
               <button
                 onClick={handleYouTubeLogin}
-                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-blue-500/25"
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-red-500/25"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 3.46-2.128 4.692-1.232 1.232-2.834 1.959-4.692 2.128-1.858.169-3.46.896-4.692 2.128-1.232 1.232-1.959 2.834-2.128 4.692-.169 1.858-.896 3.46-2.128 4.692-1.232 1.232-2.834 1.959-4.692 2.128C1.858 22.431.256 23.158-1.602 22.989c-1.858-.169-3.46-.896-4.692-2.128-1.232-1.232-1.959-2.834-2.128-4.692-.169-1.858-.896-3.46-2.128-4.692-1.232-1.232-2.834-1.959-4.692-2.128C-1.858 1.569-.256.842 1.602 1.011c1.858.169 3.46.896 4.692 2.128 1.232 1.232 1.959 2.834 2.128 4.692.169 1.858.896 3.46 2.128 4.692 1.232 1.232 2.834 1.959 4.692 2.128z"/>
-                </svg>
-                <span>Play on Telegram</span>
+                <img src="/youtube.png" alt="YouTube" className="w-6 h-4" />
+                <span>Login with YouTube</span>
               </button>
 
               <button
                 onClick={handleTwitchLogin}
-                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-brand to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-brand/25"
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-purple-500/25"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 6.5h3v6h-3v-6zm-3 0h3v6h-3v-6zm6 0h3v6h-3v-6z"/>
-                </svg>
-                <span>Start Spirit Hunting</span>
+                <img src="/twitch.png" alt="Twitch" className="w-5 h-5" />
+                <span>Login with Twitch</span>
+              </button>
+
+              <button
+                onClick={handleFacebookLogin}
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-blue-600/25"
+              >
+                <img src="/facebook.png" alt="Facebook" className="w-5 h-5" />
+                <span>Login with Facebook</span>
+              </button>
+
+              <button
+                onClick={handleXLogin}
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-gray-800/25"
+              >
+                <img src="/X-logo.png" alt="X" className="w-5 h-5" />
+                <span>Login with X</span>
               </button>
             </div>
 
             <div className="mt-6 text-center">
               <p className="text-xs text-muted">
-                No download required • Play directly on Telegram • Earn Spark points while playing
+                Connect your social accounts to start your spirit hunting journey
               </p>
             </div>
             </div>
