@@ -34,10 +34,11 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
 
   if (compact) {
     return (
-      <div className="samsung-card p-4 relative overflow-hidden">
+      <div className="samsung-card p-4 relative overflow-hidden" style={{background: 'rgba(0, 0, 20, 0.95)'}}>
         {/* Enhanced gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/20 via-spekter-glass/10 to-spekter-surface/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-accent/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/30 via-spekter-glass/20 to-spekter-surface/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-accent/10"></div>
+        <div className="absolute inset-0" style={{background: 'linear-gradient(45deg, rgba(6, 182, 212, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%)'}}></div>
           <div className="flex items-center space-x-4 relative z-10">
             <div className="relative flex-shrink-0">
               {rank && (
@@ -73,7 +74,7 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           
           <div className="flex-shrink-0">
             <div className="text-right">
-              <div className="text-2xl font-bold text-brand mb-1">
+              <div className="text-2xl font-bold text-cyan-400 mb-1">
                 {creator.referralCount?.toLocaleString() || '0'}
               </div>
               <div className="text-sm text-fg-muted">Referrals</div>
@@ -86,10 +87,11 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
   }
 
   return (
-    <div className="samsung-card p-6 relative overflow-hidden">
+    <div className="samsung-card p-6 relative overflow-hidden" style={{background: 'rgba(0, 0, 20, 0.95)'}}>
       {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/20 via-spekter-glass/10 to-spekter-surface/20"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-accent/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/30 via-spekter-glass/20 to-spekter-surface/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-accent/10"></div>
+      <div className="absolute inset-0" style={{background: 'linear-gradient(45deg, rgba(6, 182, 212, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%)'}}></div>
         <div className="flex items-start space-x-6 relative z-10">
           <div className="relative flex-shrink-0">
             {rank && (
@@ -128,7 +130,7 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           
           <div className="flex-shrink-0">
             <div className="text-right">
-              <div className="text-3xl font-bold text-brand mb-1">
+              <div className="text-3xl font-bold text-cyan-400 mb-1">
                 {creator.referralCount?.toLocaleString() || '0'}
               </div>
               <div className="text-sm text-fg-muted">Referrals</div>

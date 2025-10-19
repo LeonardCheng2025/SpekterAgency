@@ -49,7 +49,7 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Creator Competition - Spekter Games</title>
+        <title>Creator Competition - Spekter Agency</title>
         <meta name="description" content="Join the creator competition! Create content, get referrals, and earn rewards. Compete with other creators from YouTube, Twitch, Facebook, and X." />
       </Head>
 
@@ -58,6 +58,19 @@ export default function Login() {
         <div className="absolute inset-0 bg-spekter-blue-glow"></div>
         <div className="absolute inset-0 bg-spekter-purple-glow"></div>
         <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-10"></div>
+        
+        {/* Back Button */}
+        <div className="absolute top-6 left-6 z-20">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center space-x-2 text-white hover:text-white/80 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="text-sm font-medium">Back</span>
+          </button>
+        </div>
         
         {/* Content */}
         <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12 relative z-10">
@@ -111,22 +124,16 @@ export default function Login() {
             </div>
 
             <div className="mt-6 text-center">
-              <p className="text-xs text-muted">
-                Join the creator competition • Create content • Earn rewards
-              </p>
+              <div className="flex flex-wrap justify-center items-center space-x-6 text-xs text-white/60 mb-4">
+                <Link href="/terms" className="hover:text-brand transition-colors font-medium uppercase tracking-wide">Terms of Service</Link>
+                <span className="text-brand/40">|</span>
+                <Link href="/privacy" className="hover:text-brand transition-colors font-medium uppercase tracking-wide">Privacy Policy</Link>
+              </div>
             </div>
             </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="bg-bg border-t border-brand/20 mt-auto relative overflow-hidden">
-          <div className="relative z-10 container mx-auto px-4 py-12">
-            <div className="text-center text-sm text-white/40 font-medium tracking-wide">
-              © 2025 Spekter Games. All rights reserved.
-            </div>
-          </div>
-        </footer>
       </div>
 
       {/* Error Modal */}

@@ -102,7 +102,13 @@ export default function Leaderboard() {
 
   return (
     <Layout>
-      <div className="space-y-12">
+      <div className="space-y-12 relative">
+        {/* Enhanced background gradients for leaderboard */}
+        <div className="absolute inset-0 bg-spekter-blue-glow opacity-20"></div>
+        <div className="absolute inset-0 bg-spekter-purple-glow opacity-15"></div>
+        <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-5"></div>
+        <div className="absolute inset-0 bg-spekter-diagonal opacity-10"></div>
+        <div className="absolute inset-0" style={{background: 'linear-gradient(45deg, rgba(6, 182, 212, 0.03) 0%, transparent 50%, rgba(59, 130, 246, 0.03) 100%)'}}></div>
         {/* Current User Ranking - Moved to top */}
         {currentUser && (
           <CurrentUserRank 

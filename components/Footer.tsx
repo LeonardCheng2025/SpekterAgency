@@ -12,8 +12,8 @@ export default function Footer() {
         <div className="flex flex-col items-center mb-8">
           <div className="flex items-center justify-center mb-6">
             <img 
-              src="/SG_logo.png" 
-              alt="Spekter Games"
+              src="/clutch.png" 
+              alt="Clutch"
               className="h-11 w-auto"
             />
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center text-sm text-white/40 font-medium tracking-wide">
-          © 2025 Spekter Games. All rights reserved.
+          © 2025 Clutch. All rights reserved.
         </div>
       </div>
     </footer>

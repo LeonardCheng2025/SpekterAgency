@@ -9,11 +9,11 @@ export default function MobileRedirect() {
       
       {/* Content */}
       <div className="relative max-w-md w-full text-center">
-        {/* Delabs Logo */}
+        {/* Clutch Logo */}
         <div className="mb-8">
           <img 
-            src="/Header_logo.png" 
-            alt="Delabs"
+            src="/clutch.png" 
+            alt="Clutch"
             className="h-12 w-auto mx-auto mb-6"
           />
         </div>
@@ -25,7 +25,7 @@ export default function MobileRedirect() {
               Desktop Experience Required
             </h1>
             <p className="text-white/80 text-base leading-relaxed">
-              For the best experience with the Ragnarok Libre Streamer Supporting System, 
+              For the best experience with the Spekter Agency Creator Competition, 
               please visit us on your desktop or laptop computer.
             </p>
           </div>
@@ -38,7 +38,7 @@ export default function MobileRedirect() {
         {/* Footer */}
         <div className="mt-6 text-center">
           <p className="text-white/40 text-xs">
-            © 2025 Delabs. All rights reserved.
+            © 2025 Clutch. All rights reserved.
           </p>
         </div>
       </div>

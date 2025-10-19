@@ -82,8 +82,8 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'spekter-hero': 'linear-gradient(90deg, #364D8F 0%, #2A3A6B 30%, #1A2333 60%, #02070B 100%)',
-        'spekter-blue-glow': 'radial-gradient(circle at 20% 50%, rgba(54, 77, 143, 0.3) 0%, transparent 60%)',
+        'spekter-hero': 'linear-gradient(90deg, #1A2333 0%, #0F1419 30%, #02070B 60%, #02070B 100%)',
+        'spekter-blue-glow': 'radial-gradient(circle at 20% 50%, rgba(52, 111, 196, 0.3) 0%, transparent 60%)',
         'spekter-purple-glow': 'radial-gradient(circle at 80% 20%, rgba(60, 50, 103, 0.2) 0%, transparent 70%)',
         'spekter-grid': 'linear-gradient(rgba(52, 111, 196, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 111, 196, 0.05) 1px, transparent 1px)',
         'spekter-diagonal': 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(52, 111, 196, 0.03) 2px, rgba(52, 111, 196, 0.03) 4px)',

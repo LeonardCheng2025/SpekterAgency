@@ -109,21 +109,22 @@ export default function Dashboard() {
       <div className="space-y-12">
         {/* Hero Section - Spekter Games Style */}
         <div className="relative overflow-hidden rounded-xl">
-          {/* Background with blue glow and grid */}
-          <div className="absolute inset-0 bg-spekter-hero"></div>
-          <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-30"></div>
+          {/* Enhanced background gradients - same as login page */}
+          <div className="absolute inset-0 bg-spekter-blue-glow"></div>
+          <div className="absolute inset-0 bg-spekter-purple-glow"></div>
+          <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-10"></div>
           <div className="absolute inset-0 bg-spekter-diagonal opacity-20"></div>
           
-          {/* Spekter Games Logo Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="text-8xl font-bold text-white font-display opacity-20">
-                SPEKTER
-              </div>
-            </div>
+          {/* Spekter Games Banner Background */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/SG_Banner.png" 
+              alt="Spekter Games Banner"
+              className="w-full h-full object-cover opacity-25"
+            />
           </div>
           
-          <div className="relative z-10 p-12 text-center text-white">
+          <div className="relative z-10 p-6 lg:p-12 text-center text-white">
             {/* Competition Status */}
             <div className="mb-8">
               <div className="inline-flex items-center space-x-3 bg-black/20 backdrop-blur-md rounded-full px-6 py-3 border border-brand/20">
@@ -134,37 +135,37 @@ export default function Dashboard() {
             
             {/* Competition Stats Display */}
             <div className="mb-8">
-              <div className="text-8xl font-black mb-4 tracking-wider">
-                <span className="text-white drop-shadow-lg">$40</span>
-                <span className="text-brand drop-shadow-lg">K</span>
+              <div className="text-4xl lg:text-6xl font-black mb-4 tracking-wider">
+                <span className="text-white drop-shadow-lg">1% of </span>
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent drop-shadow-lg">$SPT</span>
               </div>
-              <div className="text-white/80 text-lg font-bold tracking-wider mb-6">Total Prize Pool</div>
+              <div className="text-white/80 text-base lg:text-lg font-bold tracking-wider mb-6">Total Prize Pool</div>
               
-              <div className="text-2xl font-bold text-white mb-2 tracking-wider">
+              <div className="text-xl lg:text-2xl font-bold text-white mb-2 tracking-wider">
                 Creator Competition - Spekter Agency
               </div>
 
             </div>
             
             {/* Competition Info */}
-            <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-6 py-3 border border-brand/30">
+            <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-4 py-3 lg:px-6 border border-brand/30">
               <div className="w-2.5 h-2.5 bg-brand rounded-full mr-2.5 animate-pulse"></div>
-              <p className="text-base font-bold tracking-wider">Create Content • Get Referrals • Earn Rewards</p>
+              <p className="text-sm lg:text-base font-bold tracking-wider">Create Content • Get Referrals • Earn Rewards</p>
             </div>
           </div>
           
           {/* Competition Description - Part of Hero Section */}
-          <div className="relative z-10 bg-gradient-to-r from-gray-900/40 to-gray-800/40 backdrop-blur-sm border-t border-brand/20 p-8">
+          <div className="relative z-10 bg-gradient-to-r from-gray-900/40 to-gray-800/40 backdrop-blur-sm border-t border-brand/20 p-4 lg:p-8">
             <div className="text-center max-w-5xl mx-auto">
-              <h3 className="font-bold text-white mb-6 tracking-wide text-center" style={{fontSize: '20.4px'}}>
+              <h3 className="font-bold text-white mb-4 lg:mb-6 tracking-wide text-center text-lg lg:text-xl">
                 Creator Competition: Compete for Rewards & Recognition
               </h3>
-              <div className="text-center max-w-4xl mx-auto space-y-4">
-                <p className="text-gray-200 leading-relaxed" style={{fontSize: '16px'}}>
-                  Join the ultimate creator competition! Create quality content on YouTube, Twitch, Facebook, or X, and get referrals to play Spekter Agency. Track your performance and climb the leaderboard.
+              <div className="text-center max-w-4xl mx-auto space-y-3 lg:space-y-4">
+                <p className="text-gray-200 leading-relaxed text-sm lg:text-base">
+                  Create content on YouTube, Twitch, Facebook, or X. Get referrals to play Spekter Agency and climb the leaderboard.
                 </p>
-                <p className="text-gray-200 leading-relaxed" style={{fontSize: '16px'}}>
-                  Earn rewards based on your content creation, referral performance, and player engagement. The more players you refer and the more IAP they generate, the higher you rank and the more rewards you earn.
+                <p className="text-gray-200 leading-relaxed text-sm lg:text-base">
+                  Earn rewards based on your referrals and player engagement. More referrals = higher ranking = bigger rewards.
                 </p>
               </div>
             </div>
@@ -179,17 +180,17 @@ export default function Dashboard() {
           <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-20"></div>
           <div className="absolute inset-0 bg-spekter-diagonal opacity-15"></div>
           
-          <div className="samsung-card p-8">
-            <h2 className="font-black text-white mb-8 tracking-tight" style={{fontSize: '24px'}}>Competition Information</h2>
+          <div className="samsung-card p-4 lg:p-8">
+            <h2 className="font-black text-white mb-6 lg:mb-8 tracking-tight text-xl lg:text-2xl">Competition Information</h2>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Featured News Image */}
               <div className="relative group">
                 <div className="overflow-hidden rounded-xl border border-brand/20">
                   <img 
                     src="/Annoucement_Banner.png" 
                     alt="Featured News"
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-48 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>
@@ -230,10 +231,10 @@ export default function Dashboard() {
           <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-15"></div>
           <div className="absolute inset-0 bg-spekter-diagonal opacity-20"></div>
           
-          <div className="samsung-card p-8">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="font-black text-white tracking-tight" style={{fontSize: '24px'}}>Top Creators</h3>
-              <Link href="/leaderboard" className="samsung-btn-primary">
+          <div className="samsung-card p-4 lg:p-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 lg:mb-8 gap-4">
+              <h3 className="font-black text-white tracking-tight text-xl lg:text-2xl">Top Creators</h3>
+              <Link href="/leaderboard" className="samsung-btn-primary text-xs lg:text-sm px-4 py-2 lg:px-6 lg:py-3">
                 VIEW FULL LEADERBOARD
               </Link>
             </div>

@@ -1,6 +1,6 @@
-# Ragnarok Libre - Streamer Supporting System
+# Spekter Agency - Creator Competition Platform
 
-A modern web application mock-up for the Ragnarok Libre Streamer Supporting System, built with Next.js, React, and Tailwind CSS.
+A modern web application for the Spekter Agency Creator Competition, built with Next.js, React, and Tailwind CSS.
 
 ## Features
 

@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Ragnarok Libre Clutch - Creator Leaderboard & Rewards Platform</title>
+        <title>Spekter - Clutch</title>
       </Head>
       <Component {...pageProps} />
     </>

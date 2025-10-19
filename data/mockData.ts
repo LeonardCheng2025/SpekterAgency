@@ -43,8 +43,8 @@ export interface Announcement {
 // Helper function to generate random scores between 100-5500
 const generateRandomScore = () => Math.floor(Math.random() * 5400) + 100;
 
-// Helper function to generate random avatar URL
-const generateAvatar = (seed: string) => `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}`;
+// Helper function to generate professional avatar URL
+const generateAvatar = (seed: string) => `https://api.dicebear.com/7.x/personas/svg?seed=${encodeURIComponent(seed)}&backgroundColor=transparent&backgroundType=gradientLinear&clothingColor=262e33&eyeColor=4a90e2&hairColor=724133&skinColor=edb98a&style=circle`;
 
 // Mock creators data - 50 content creators with diverse profiles
 export const mockCreators: Creator[] = [
@@ -1029,7 +1029,7 @@ export const mockAnnouncements: Announcement[] = [
 
 // Current game version info
 export const currentSeason = {
-  season: "Launch",
+  season: "1",
   round: 1,
   startDate: "2025-01-15",
   endDate: "Ongoing",

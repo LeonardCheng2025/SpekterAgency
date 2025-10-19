@@ -68,7 +68,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       totalPoints: creator.totalPoints,
       tier: creator.tier,
       isLive: creator.isLive,
-      avatar: creator.avatar || '/Creator/default.png',
+      avatar: creator.avatar || 'https://api.dicebear.com/7.x/personas/svg?seed=default-user&backgroundColor=transparent&backgroundType=gradientLinear&clothingColor=262e33&eyeColor=4a90e2&hairColor=724133&skinColor=edb98a&style=circle',
       region: creator.region || 'Pending',
       // Add missing referral fields for CurrentUserRank component
       referralCount: creator.referralCount,

@@ -33,7 +33,7 @@ export default function DebugOAuth() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Head>
-        <title>OAuth Debug - Ragnarok Libre Clutch</title>
+        <title>OAuth Debug - Spekter Agency</title>
       </Head>
 
       <div className="container mx-auto px-4 py-8">

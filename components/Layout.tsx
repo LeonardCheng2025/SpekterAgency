@@ -22,23 +22,6 @@ export default function Layout({ children }: LayoutProps) {
     setIsLoggedIn(isAuthenticated);
   }, [isAuthenticated]);
 
-  // Check if device is mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const mobileKeywords = ['mobile', 'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
-      const isMobileUA = mobileKeywords.some(keyword => userAgent.includes(keyword));
-      const isSmallScreen = window.innerWidth < 1024; // Less than lg breakpoint
-      setIsMobile(isMobileUA || isSmallScreen);
-    };
-
-    if (typeof window !== 'undefined') {
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-    }
-  }, []);
-
   const isActive = (path: string) => {
     if (path === '/dashboard' && router.pathname === '/') return true;
     return router.pathname === path;
@@ -53,47 +36,34 @@ export default function Layout({ children }: LayoutProps) {
     router.push('/login');
   };
 
-  // Show mobile redirect screen if on mobile device
-  if (isMobile) {
-    return <MobileRedirect />;
-  }
-
   return (
     <div className="min-h-screen bg-bg">
-      {/* Header - Delabs Style */}
+      {/* Header - Responsive Design */}
       {showHeader && (
         <header className="sticky top-0 z-40 backdrop-blur-lg border-b border-brand/20" style={{background: 'rgba(2, 7, 11, 0.9)'}}>
-          <div className="container mx-auto">
+          <div className="container mx-auto px-4">
             <div className="flex h-16 items-center justify-between">
               {/* Logo and Brand */}
-              <div className="flex items-center space-x-6">
-                <Link href="/dashboard" className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 lg:space-x-6">
+                <Link href="/dashboard" className="flex items-center space-x-2 lg:space-x-3">
                   <img 
                     src="/SG_logo.png" 
                     alt="Spekter Games"
-                    className="h-6 w-auto"
+                    className="h-5 w-auto lg:h-6"
                   />
                 </Link>
                 
-                <div className="hidden lg:flex items-center space-x-6 ml-8 text-sm">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-white/60 tracking-wide font-medium">Season</span>
-                    <span className="font-bold text-white">{currentSeason.season}</span>
-                  </div>
-                  <div className="px-4 py-2 bg-brand text-white rounded-full text-xs font-bold tracking-wide border border-brand/50">
-                    {currentSeason.daysLeft}
-                  </div>
-                </div>
               </div>
 
+
               {/* Navigation */}
-              <nav className="flex items-center space-x-8">
-                <div className="hidden md:flex items-center space-x-8 text-sm">
+              <nav className="flex items-center space-x-4 lg:space-x-8">
+                <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm">
                   <Link 
                     href="/dashboard"
                     className={`font-bold tracking-wide transition-colors ${
                       isActive('/dashboard') 
-                        ? 'text-brand' 
+                        ? 'text-cyan-400' 
                         : 'text-white/80 hover:text-white'
                     }`}
                   >
@@ -103,7 +73,7 @@ export default function Layout({ children }: LayoutProps) {
                     href="/leaderboard"
                     className={`font-bold tracking-wide transition-colors ${
                       isActive('/leaderboard') 
-                        ? 'text-brand' 
+                        ? 'text-cyan-400' 
                         : 'text-white/80 hover:text-white'
                     }`}
                   >
@@ -116,12 +86,12 @@ export default function Layout({ children }: LayoutProps) {
                   <ProfileDropdown 
                     userName={currentUser.name || 'User'} 
                     userId={currentUser.id || 'user'} 
-                    userAvatar={currentUser.avatar || '/Creator/阿瑞斯Ares.png'} 
+                    userAvatar={currentUser.avatar || 'https://api.dicebear.com/7.x/personas/svg?seed=default-user&backgroundColor=transparent&backgroundType=gradientLinear&clothingColor=262e33&eyeColor=4a90e2&hairColor=724133&skinColor=edb98a&style=circle'} 
                   />
                 ) : (
                   <button
                     onClick={handleLoginRedirect}
-                    className="bg-brand hover:bg-brand/80 text-white px-6 py-2 rounded-lg font-bold tracking-wide transition-colors text-sm"
+                    className="bg-gradient-to-r from-brand to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white px-4 py-2 lg:px-6 rounded-lg font-bold tracking-wide transition-all duration-200 text-xs lg:text-sm shadow-lg hover:shadow-brand/25"
                   >
                     Login
                   </button>
@@ -133,7 +103,7 @@ export default function Layout({ children }: LayoutProps) {
       )}
 
       {/* Main Content */}
-      <main className="container mx-auto section-spacing">
+      <main className="container mx-auto px-4 section-spacing">
         {children}
       </main>
 
