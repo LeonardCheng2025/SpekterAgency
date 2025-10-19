@@ -8,9 +8,9 @@ interface ContentTileProps {
 export default function ContentTile({ content }: ContentTileProps) {
   const getPlatformIcon = (platform: string) => {
     switch (platform) {
-      case 'YouTube': return <PlayIcon className="w-4 h-4" />;
-      case 'Facebook': return <VideoCameraIcon className="w-4 h-4" />;
-      case 'Twitch': return <TvIcon className="w-4 h-4" />;
+      case 'Telegram': return <PlayIcon className="w-4 h-4" />;
+      case 'Web': return <VideoCameraIcon className="w-4 h-4" />;
+      case 'Mobile': return <TvIcon className="w-4 h-4" />;
       default: return <VideoCameraIcon className="w-4 h-4" />;
     }
   };
@@ -18,9 +18,9 @@ export default function ContentTile({ content }: ContentTileProps) {
   const getPlatformColor = (platform: string) => {
     const baseStyle = 'text-white font-semibold backdrop-blur-md border border-white/20 uppercase tracking-wide';
     switch (platform) {
-      case 'YouTube': return `bg-black/60 ${baseStyle}`;
-      case 'Facebook': return `bg-black/60 ${baseStyle}`;
-      case 'Twitch': return `bg-black/60 ${baseStyle}`;
+      case 'Telegram': return `bg-black/60 ${baseStyle}`;
+      case 'Web': return `bg-black/60 ${baseStyle}`;
+      case 'Mobile': return `bg-black/60 ${baseStyle}`;
       default: return `bg-black/60 ${baseStyle}`;
     }
   };

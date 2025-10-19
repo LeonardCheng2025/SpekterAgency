@@ -32,12 +32,12 @@ export default function Leaderboard() {
         filteredCreators = filteredCreators.filter(creator => creator.region === selectedRegion);
       }
       
-      // Apply platform filter
-      if (selectedPlatform !== 'All') {
-        filteredCreators = filteredCreators.filter(creator => 
-          creator.platforms.includes(selectedPlatform as 'YouTube' | 'Facebook' | 'Twitch')
-        );
-      }
+        // Apply platform filter
+        if (selectedPlatform !== 'All') {
+          filteredCreators = filteredCreators.filter(creator => 
+            creator.platforms.includes(selectedPlatform as 'Telegram' | 'Mobile' | 'Web')
+          );
+        }
       
       // Sort by total points
       filteredCreators.sort((a, b) => b.totalPoints - a.totalPoints);
@@ -51,13 +51,15 @@ export default function Leaderboard() {
   const filterOptions = {
     regions: [
       { value: 'All', label: 'All Regions' },
-      { value: 'Taiwan', label: 'Taiwan' },
-      { value: 'Thailand', label: 'Thailand' }
+      { value: 'Global', label: 'Global' },
+      { value: 'Asia', label: 'Asia' },
+      { value: 'Americas', label: 'Americas' }
     ],
     platforms: [
       { value: 'All', label: 'All Platforms' },
-      { value: 'YouTube', label: 'YouTube' },
-      { value: 'Twitch', label: 'Twitch' }
+      { value: 'Telegram', label: 'Telegram' },
+      { value: 'Mobile', label: 'Mobile' },
+      { value: 'Web', label: 'Web' }
     ]
   };
 
