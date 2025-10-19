@@ -43,16 +43,25 @@ export default function Login() {
         <meta name="description" content="Login to Spekter Games platform" />
       </Head>
 
-      <div className="min-h-screen bg-bg">
+      <div className="min-h-screen bg-bg relative overflow-hidden">
+        {/* Enhanced background gradients */}
+        <div className="absolute inset-0 bg-spekter-blue-glow"></div>
+        <div className="absolute inset-0 bg-spekter-purple-glow"></div>
+        <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-10"></div>
+        
         {/* Content */}
-        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12">
-          <div className="samsung-card p-8 max-w-md w-full">
+        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12 relative z-10">
+          <div className="samsung-card p-8 max-w-md w-full relative overflow-hidden">
+            {/* Enhanced glass effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-spekter-surface/30 via-spekter-glass/20 to-spekter-surface/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand/10 via-transparent to-accent/10"></div>
+            <div className="relative z-10">
             <div className="text-center mb-8">
               <div className="flex items-center justify-center mb-6">
                 <img 
                   src="/SG_logo.png" 
                   alt="Spekter Games"
-                  className="h-12 w-auto mx-auto"
+                  className="h-8 w-auto mx-auto"
                 />
               </div>
             </div>
@@ -86,6 +95,7 @@ export default function Login() {
                   Privacy Policy
                 </Link>
               </p>
+            </div>
             </div>
           </div>
         </div>

@@ -71,7 +71,7 @@ export default function Layout({ children }: LayoutProps) {
                   <img 
                     src="/SG_logo.png" 
                     alt="Spekter Games"
-                    className="h-8 w-auto"
+                    className="h-6 w-auto"
                   />
                 </Link>
                 

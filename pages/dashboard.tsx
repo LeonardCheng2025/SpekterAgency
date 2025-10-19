@@ -173,9 +173,11 @@ export default function Dashboard() {
 
         {/* News Section - Public */}
         <div className="relative overflow-hidden rounded-xl">
-          {/* Background */}
-          <div className="absolute inset-0 bg-delabs-red-glow"></div>
-          <div className="absolute inset-0 bg-delabs-grid bg-grid opacity-20"></div>
+          {/* Enhanced Background Gradients */}
+          <div className="absolute inset-0 bg-spekter-blue-glow"></div>
+          <div className="absolute inset-0 bg-spekter-purple-glow"></div>
+          <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-20"></div>
+          <div className="absolute inset-0 bg-spekter-diagonal opacity-15"></div>
           
           <div className="samsung-card p-8">
             <h2 className="font-black text-white mb-8 tracking-tight" style={{fontSize: '24px'}}>Frequently Asked Questions</h2>
@@ -196,7 +198,7 @@ export default function Dashboard() {
               <div className="space-y-3">
                 {faqData.map((faq, index) => (
                   <div key={faq.id} className="group cursor-pointer" onClick={() => setSelectedFaq({question: faq.question, answer: faq.answer})}>
-                    <div className="flex items-center space-x-4 p-4 bg-black/20 backdrop-blur-md rounded-xl border border-brand/10 hover:border-brand/30 transition-all duration-300 hover:bg-black/30">
+                    <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-spekter-surface/40 via-spekter-glass/30 to-spekter-surface/40 backdrop-blur-md rounded-xl border border-brand/20 hover:border-brand/40 transition-all duration-300 hover:from-spekter-surface/60 hover:via-spekter-glass/50 hover:to-spekter-surface/60 shadow-lg hover:shadow-spekter-glow">
                       <div className="flex-shrink-0">
                         <div className="w-8 h-8 bg-brand/20 border border-brand/30 rounded-lg flex items-center justify-center group-hover:bg-brand/30 transition-colors">
                           <svg className="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20">
@@ -222,9 +224,11 @@ export default function Dashboard() {
 
         {/* Public Leaderboard Preview */}
         <div className="relative overflow-hidden rounded-xl">
-          {/* Background */}
+          {/* Enhanced Background Gradients */}
           <div className="absolute inset-0 bg-spekter-blue-glow"></div>
-          <div className="absolute inset-0 bg-spekter-diagonal opacity-10"></div>
+          <div className="absolute inset-0 bg-spekter-purple-glow"></div>
+          <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-15"></div>
+          <div className="absolute inset-0 bg-spekter-diagonal opacity-20"></div>
           
           <div className="samsung-card p-8">
             <div className="flex items-center justify-between mb-8">

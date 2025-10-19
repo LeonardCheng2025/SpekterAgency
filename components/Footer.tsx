@@ -14,7 +14,7 @@ export default function Footer() {
             <img 
               src="/SG_logo.png" 
               alt="Spekter Games"
-              className="h-16 w-auto"
+              className="h-11 w-auto"
             />
           </div>
           

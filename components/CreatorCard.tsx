@@ -32,11 +32,14 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
 
   if (compact) {
     return (
-      <div className="samsung-card p-4">
-          <div className="flex items-center space-x-4">
+      <div className="samsung-card p-4 relative overflow-hidden">
+        {/* Enhanced gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/20 via-spekter-glass/10 to-spekter-surface/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-accent/5"></div>
+          <div className="flex items-center space-x-4 relative z-10">
             <div className="relative flex-shrink-0">
               {rank && (
-                <div className="absolute -top-2 -left-2 bg-brand text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-semibold">
+                <div className="absolute -top-2 -left-2 bg-gradient-to-br from-brand to-brand-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-semibold shadow-lg shadow-brand/30">
                   {rank}
                 </div>
               )}
@@ -81,11 +84,14 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
   }
 
   return (
-    <div className="samsung-card p-6">
-        <div className="flex items-start space-x-6">
+    <div className="samsung-card p-6 relative overflow-hidden">
+      {/* Enhanced gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-spekter-surface/20 via-spekter-glass/10 to-spekter-surface/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-accent/5"></div>
+        <div className="flex items-start space-x-6 relative z-10">
           <div className="relative flex-shrink-0">
             {rank && (
-              <div className="absolute -top-3 -left-3 bg-brand text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-semibold">
+              <div className="absolute -top-3 -left-3 bg-gradient-to-br from-brand to-brand-600 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-semibold shadow-lg shadow-brand/30">
                 {rank}
               </div>
             )}
