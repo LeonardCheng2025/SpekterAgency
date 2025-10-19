@@ -48,13 +48,12 @@ export default function Login() {
         <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12">
           <div className="samsung-card p-8 max-w-md w-full">
             <div className="text-center mb-8">
-              <div className="flex items-center justify-center space-x-3 mb-6">
-                <div className="text-3xl font-bold text-white font-display">
-                  SPEKTER
-                </div>
-                <div className="text-xl font-medium text-brand">
-                  GAMES
-                </div>
+              <div className="flex items-center justify-center mb-6">
+                <img 
+                  src="/SG_logo.png" 
+                  alt="Spekter Games"
+                  className="h-12 w-auto mx-auto"
+                />
               </div>
             </div>
 

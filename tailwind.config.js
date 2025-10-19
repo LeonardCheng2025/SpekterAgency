@@ -17,8 +17,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          '"Orbitron"',
-          '"Exo 2"',
           '"Inter"',
           '"Poppins"',
           '"Roboto"',
@@ -27,13 +25,6 @@ module.exports = {
           '"Segoe UI"',
           'Helvetica',
           'Arial',
-          'sans-serif'
-        ],
-        display: [
-          '"Orbitron"',
-          '"Exo 2"',
-          '"Inter"',
-          'system-ui',
           'sans-serif'
         ],
       },
@@ -91,12 +82,13 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'spekter-hero': 'radial-gradient(circle at 50% 50%, rgba(52, 111, 196, 0.15) 0%, transparent 50%), linear-gradient(135deg, #02070B 0%, #364D8F 100%)',
-        'spekter-blue-glow': 'radial-gradient(circle at 30% 40%, rgba(52, 111, 196, 0.1) 0%, transparent 70%)',
-        'spekter-purple-glow': 'radial-gradient(circle at 70% 60%, rgba(60, 50, 103, 0.08) 0%, transparent 70%)',
+        'spekter-hero': 'linear-gradient(90deg, #364D8F 0%, #2A3A6B 30%, #1A2333 60%, #02070B 100%)',
+        'spekter-blue-glow': 'radial-gradient(circle at 20% 50%, rgba(54, 77, 143, 0.3) 0%, transparent 60%)',
+        'spekter-purple-glow': 'radial-gradient(circle at 80% 20%, rgba(60, 50, 103, 0.2) 0%, transparent 70%)',
         'spekter-grid': 'linear-gradient(rgba(52, 111, 196, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 111, 196, 0.05) 1px, transparent 1px)',
         'spekter-diagonal': 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(52, 111, 196, 0.03) 2px, rgba(52, 111, 196, 0.03) 4px)',
-        'spekter-gradient': 'linear-gradient(135deg, #02070B 0%, #364D8F 50%, #3C3267 100%)',
+        'spekter-gradient': 'linear-gradient(90deg, #364D8F 0%, #2A3A6B 30%, #1A2333 60%, #02070B 100%)',
+        'spekter-main': 'linear-gradient(90deg, #364D8F 0%, #2A3A6B 25%, #1A2333 50%, #0F1419 75%, #02070B 100%)',
       },
       backgroundSize: {
         'grid': '50px 50px',

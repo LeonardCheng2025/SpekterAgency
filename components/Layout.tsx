@@ -68,12 +68,11 @@ export default function Layout({ children }: LayoutProps) {
               {/* Logo and Brand */}
               <div className="flex items-center space-x-6">
                 <Link href="/dashboard" className="flex items-center space-x-3">
-                  <div className="text-2xl font-bold text-white font-display">
-                    SPEKTER
-                  </div>
-                  <div className="text-lg font-medium text-brand">
-                    GAMES
-                  </div>
+                  <img 
+                    src="/SG_logo.png" 
+                    alt="Spekter Games"
+                    className="h-8 w-auto"
+                  />
                 </Link>
                 
                 <div className="hidden lg:flex items-center space-x-6 ml-8 text-sm">

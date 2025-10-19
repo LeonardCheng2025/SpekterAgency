@@ -11,14 +11,11 @@ export default function Footer() {
         {/* Logo and Social Links */}
         <div className="flex flex-col items-center mb-8">
           <div className="flex items-center justify-center mb-6">
-            <div className="flex items-center space-x-3">
-              <div className="text-4xl font-bold text-white font-display">
-                SPEKTER
-              </div>
-              <div className="text-2xl font-medium text-brand">
-                GAMES
-              </div>
-            </div>
+            <img 
+              src="/SG_logo.png" 
+              alt="Spekter Games"
+              className="h-16 w-auto"
+            />
           </div>
           
 
