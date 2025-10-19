@@ -41,6 +41,12 @@ export interface Announcement {
   type: 'info' | 'warning' | 'success';
 }
 
+// Helper function to generate random scores between 100-5500
+const generateRandomScore = () => Math.floor(Math.random() * 5400) + 100;
+
+// Helper function to generate random avatar URL
+const generateAvatar = (seed: string) => `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}`;
+
 // Mock creators data - 50 creators with diverse profiles
 export const mockCreators: Creator[] = [
   // Top Tier Creators (Best)
@@ -55,10 +61,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 89400,
     onchainSpending: 56700,
     newPlayers: 2134,
-    totalPoints: 113400,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/twro相見.png",
+    avatar: generateAvatar("twro-meet"),
     region: "Taiwan"
   },
   {
@@ -72,10 +78,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 45600,
     onchainSpending: 28900,
     newPlayers: 1240,
-    totalPoints: 63100,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/Shorty Bluejova.png",
+    avatar: generateAvatar("shorty-bluejova"),
     region: "Thailand"
   },
   {
@@ -89,10 +95,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 56700,
     onchainSpending: 34500,
     newPlayers: 1123,
-    totalPoints: 80100,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/阿瑞斯Ares.png",
+    avatar: generateAvatar("ares"),
     region: "Taiwan"
   },
   {
@@ -106,10 +112,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 34500,
     onchainSpending: 23400,
     newPlayers: 890,
-    totalPoints: 52300,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/微笑.png",
+    avatar: generateAvatar("smile"),
     region: "Taiwan"
   },
   {
@@ -123,10 +129,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 67800,
     onchainSpending: 38900,
     newPlayers: 1456,
-    totalPoints: 84500,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("game-master-th"),
     region: "Thailand"
   },
   {
@@ -140,10 +146,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 45600,
     onchainSpending: 31200,
     newPlayers: 1123,
-    totalPoints: 70100,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-legend-tw"),
     region: "Taiwan"
   },
   {
@@ -157,10 +163,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 38900,
     onchainSpending: 26700,
     newPlayers: 987,
-    totalPoints: 60100,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-gamer-pro"),
     region: "Thailand"
   },
   {
@@ -174,10 +180,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 34500,
     onchainSpending: 24500,
     newPlayers: 876,
-    totalPoints: 55700,
+    totalPoints: 0, // Will be set below
     tier: "Best",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-king-tw"),
     region: "Taiwan"
   },
 
@@ -193,10 +199,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 18900,
     onchainSpending: 9800,
     newPlayers: 456,
-    totalPoints: 21300,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/Stanley 史丹利.png",
+    avatar: generateAvatar("stanley"),
     region: "Taiwan"
   },
   {
@@ -210,10 +216,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 28900,
     onchainSpending: 15600,
     newPlayers: 678,
-    totalPoints: 35400,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/大晴小宅男Daching.png",
+    avatar: generateAvatar("daching-otaku"),
     region: "Taiwan"
   },
   {
@@ -227,10 +233,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 29800,
     onchainSpending: 18900,
     newPlayers: 567,
-    totalPoints: 42300,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/阿昌老闆.png",
+    avatar: generateAvatar("achang-boss"),
     region: "Taiwan"
   },
   {
@@ -244,10 +250,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 31200,
     onchainSpending: 19800,
     newPlayers: 654,
-    totalPoints: 44300,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-streamer-1"),
     region: "Thailand"
   },
   {
@@ -261,10 +267,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 26700,
     onchainSpending: 16700,
     newPlayers: 543,
-    totalPoints: 37900,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-expert-tw"),
     region: "Taiwan"
   },
   {
@@ -278,10 +284,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 22300,
     onchainSpending: 13400,
     newPlayers: 432,
-    totalPoints: 31200,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("gaming-thai"),
     region: "Thailand"
   },
   {
@@ -295,10 +301,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 17800,
     onchainSpending: 11200,
     newPlayers: 321,
-    totalPoints: 25700,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-master-tw"),
     region: "Taiwan"
   },
   {
@@ -312,10 +318,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 14500,
     onchainSpending: 9800,
     newPlayers: 210,
-    totalPoints: 22100,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-gamer-2"),
     region: "Thailand"
   },
   {
@@ -329,10 +335,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 13400,
     onchainSpending: 8900,
     newPlayers: 198,
-    totalPoints: 20100,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-legend-tw-2"),
     region: "Taiwan"
   },
   {
@@ -346,10 +352,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 11200,
     onchainSpending: 7800,
     newPlayers: 187,
-    totalPoints: 17600,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-ro-player"),
     region: "Thailand"
   },
   {
@@ -363,10 +369,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 9800,
     onchainSpending: 6700,
     newPlayers: 176,
-    totalPoints: 15600,
+    totalPoints: 0, // Will be set below
     tier: "Partner",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-hero-tw"),
     region: "Taiwan"
   },
 
@@ -382,10 +388,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 8900,
     onchainSpending: 4500,
     newPlayers: 234,
-    totalPoints: 11200,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/貝瑞Barry.png",
+    avatar: generateAvatar("barry"),
     region: "Taiwan"
   },
   {
@@ -399,10 +405,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 15600,
     onchainSpending: 8900,
     newPlayers: 345,
-    totalPoints: 21200,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/阿翊.png",
+    avatar: generateAvatar("ayi"),
     region: "Taiwan"
   },
   {
@@ -416,10 +422,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 9800,
     onchainSpending: 5600,
     newPlayers: 165,
-    totalPoints: 13400,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("thai-gamer-3"),
     region: "Thailand"
   },
   {
@@ -433,10 +439,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 7800,
     onchainSpending: 4500,
     newPlayers: 154,
-    totalPoints: 11200,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-newbie-tw"),
     region: "Taiwan"
   },
   {
@@ -450,10 +456,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 6700,
     onchainSpending: 3400,
     newPlayers: 143,
-    totalPoints: 9000,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-streamer-2"),
     region: "Thailand"
   },
   {
@@ -467,10 +473,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 5600,
     onchainSpending: 2800,
     newPlayers: 132,
-    totalPoints: 7300,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-fan-tw"),
     region: "Taiwan"
   },
   {
@@ -484,10 +490,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 4500,
     onchainSpending: 2200,
     newPlayers: 121,
-    totalPoints: 5600,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-gamer-4"),
     region: "Thailand"
   },
   {
@@ -501,10 +507,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 3400,
     onchainSpending: 1800,
     newPlayers: 110,
-    totalPoints: 4600,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-player-tw"),
     region: "Taiwan"
   },
   {
@@ -518,10 +524,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 2800,
     onchainSpending: 1400,
     newPlayers: 109,
-    totalPoints: 3600,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("thai-ro-fan"),
     region: "Thailand"
   },
   {
@@ -535,10 +541,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 2200,
     onchainSpending: 1000,
     newPlayers: 98,
-    totalPoints: 2800,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-beginner-tw"),
     region: "Taiwan"
   },
   {
@@ -552,10 +558,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 1800,
     onchainSpending: 800,
     newPlayers: 87,
-    totalPoints: 2200,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-gamer-5"),
     region: "Thailand"
   },
   {
@@ -569,10 +575,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 1400,
     onchainSpending: 600,
     newPlayers: 76,
-    totalPoints: 1600,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-casual-tw"),
     region: "Taiwan"
   },
   {
@@ -586,10 +592,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 1000,
     onchainSpending: 400,
     newPlayers: 65,
-    totalPoints: 1200,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-streamer-3"),
     region: "Thailand"
   },
   {
@@ -603,10 +609,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 800,
     onchainSpending: 300,
     newPlayers: 54,
-    totalPoints: 900,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-fanatic-tw"),
     region: "Taiwan"
   },
   {
@@ -620,10 +626,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 600,
     onchainSpending: 200,
     newPlayers: 43,
-    totalPoints: 600,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("thai-gamer-6"),
     region: "Thailand"
   },
   {
@@ -637,10 +643,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 400,
     onchainSpending: 150,
     newPlayers: 32,
-    totalPoints: 450,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-enthusiast-tw"),
     region: "Taiwan"
   },
   {
@@ -654,10 +660,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 300,
     onchainSpending: 100,
     newPlayers: 21,
-    totalPoints: 300,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-ro-newbie"),
     region: "Thailand"
   },
   {
@@ -671,10 +677,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 200,
     onchainSpending: 80,
     newPlayers: 10,
-    totalPoints: 230,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-starter-tw"),
     region: "Taiwan"
   },
   {
@@ -688,10 +694,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 150,
     onchainSpending: 60,
     newPlayers: 9,
-    totalPoints: 160,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-gamer-7"),
     region: "Thailand"
   },
   {
@@ -705,10 +711,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 100,
     onchainSpending: 40,
     newPlayers: 8,
-    totalPoints: 120,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-explorer-tw"),
     region: "Taiwan"
   },
   {
@@ -722,10 +728,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 80,
     onchainSpending: 30,
     newPlayers: 7,
-    totalPoints: 90,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("thai-streamer-4"),
     region: "Thailand"
   },
   {
@@ -739,10 +745,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 60,
     onchainSpending: 20,
     newPlayers: 6,
-    totalPoints: 60,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-adventurer-tw"),
     region: "Taiwan"
   },
   {
@@ -756,10 +762,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 40,
     onchainSpending: 15,
     newPlayers: 5,
-    totalPoints: 45,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-gamer-8"),
     region: "Thailand"
   },
   {
@@ -773,10 +779,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 30,
     onchainSpending: 10,
     newPlayers: 4,
-    totalPoints: 30,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("ro-wanderer-tw"),
     region: "Taiwan"
   },
   {
@@ -790,10 +796,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 20,
     onchainSpending: 8,
     newPlayers: 3,
-    totalPoints: 23,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("thai-ro-casual"),
     region: "Thailand"
   },
   {
@@ -807,10 +813,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 15,
     onchainSpending: 5,
     newPlayers: 2,
-    totalPoints: 15,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("ro-traveler-tw"),
     region: "Taiwan"
   },
   {
@@ -824,10 +830,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 10,
     onchainSpending: 3,
     newPlayers: 1,
-    totalPoints: 11,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail1.jpg",
+    avatar: generateAvatar("thai-gamer-9"),
     region: "Thailand"
   },
   {
@@ -841,10 +847,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 8,
     onchainSpending: 2,
     newPlayers: 1,
-    totalPoints: 7,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: true,
-    avatar: "/Creator/Thumbnail2.jpg",
+    avatar: generateAvatar("ro-pioneer-tw"),
     region: "Taiwan"
   },
   {
@@ -858,10 +864,10 @@ export const mockCreators: Creator[] = [
     iapSpending: 5,
     onchainSpending: 1,
     newPlayers: 1,
-    totalPoints: 4,
+    totalPoints: 0, // Will be set below
     tier: "Normal",
     isLive: false,
-    avatar: "/Creator/Thumbnail3.jpg",
+    avatar: generateAvatar("thai-streamer-5"),
     region: "Thailand"
   }
 ];
@@ -1036,9 +1042,28 @@ export const calculateTotalPoints = (contentPoints: number, referralPoints: numb
   return contentPoints + referralPoints;
 };
 
-// Update total points for all creators
-mockCreators.forEach(creator => {
-  creator.totalPoints = calculateTotalPoints(creator.contentPoints, creator.referralPoints);
+// Generate random scores for all creators and assign them
+const generateRandomScores = () => {
+  const scores: number[] = [];
+  
+  // Generate 50 unique random scores between 100-5500
+  while (scores.length < 50) {
+    const score = generateRandomScore();
+    if (!scores.includes(score)) {
+      scores.push(score);
+    }
+  }
+  
+  // Sort scores in descending order (highest to lowest)
+  scores.sort((a, b) => b - a);
+  
+  return scores;
+};
+
+// Assign random scores to creators
+const randomScores = generateRandomScores();
+mockCreators.forEach((creator, index) => {
+  creator.totalPoints = randomScores[index];
 });
 
 // Sort creators by total points for leaderboard
