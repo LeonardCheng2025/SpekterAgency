@@ -12,7 +12,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'https://ragnarok-libre.clutch-hub.xyz',
+            value: process.env.NEXT_PUBLIC_FRONTEND_URL || '*',
           },
           {
             key: 'Access-Control-Allow-Methods',
