@@ -4,7 +4,7 @@ import FiltersBar from '@/components/FiltersBar';
 import LeaderboardTable from '@/components/LeaderboardTable';
 import Pagination from '@/components/Pagination';
 import CurrentUserRank from '@/components/CurrentUserRank';
-import { Creator } from '@/data/mockData';
+import { Creator, mockCreators, sortedCreators } from '@/data/mockData';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { LeaderboardSkeleton } from '@/components/SkeletonLoader';
 
@@ -19,31 +19,33 @@ export default function Leaderboard() {
   
   const { user } = useAuth();
 
-  // Fetch creators data
+  // Use mock data instead of fetching from backend
   useEffect(() => {
-    const fetchCreators = async () => {
-      try {
-        setLoading(true);
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://ragnaroklibre-clutch-production.up.railway.app';
-        const response = await fetch(`${backendUrl}/api/leaderboard/creators?region=${selectedRegion}&platform=${selectedPlatform}`);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch creators');
-        }
-        
-        const data = await response.json();
-        setCreators(data.creators || []);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching creators:', err);
-        setError('Failed to load leaderboard data');
-        setCreators([]);
-      } finally {
-        setLoading(false);
+    setLoading(true);
+    
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      let filteredCreators = [...mockCreators];
+      
+      // Apply region filter
+      if (selectedRegion !== 'All') {
+        filteredCreators = filteredCreators.filter(creator => creator.region === selectedRegion);
       }
-    };
-
-    fetchCreators();
+      
+      // Apply platform filter
+      if (selectedPlatform !== 'All') {
+        filteredCreators = filteredCreators.filter(creator => 
+          creator.platforms.includes(selectedPlatform as 'YouTube' | 'Facebook' | 'Twitch')
+        );
+      }
+      
+      // Sort by total points
+      filteredCreators.sort((a, b) => b.totalPoints - a.totalPoints);
+      
+      setCreators(filteredCreators);
+      setError(null);
+      setLoading(false);
+    }, 500); // 500ms delay to simulate loading
   }, [selectedRegion, selectedPlatform]);
 
   const filterOptions = {
