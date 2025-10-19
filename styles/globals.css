@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Samsung theme */
+:root {
+  --bg: #fff;
+  --fg: #0A0A0A;
+  --muted: #6B7280;
+  --line: #E5E7EB;
+  --brand: #1428A0;
+  --brand-600: #0E1E78;
+  --brand-100: #EDF2FF;
+  --accent: #111827;
+}
+
+@layer base {
+  html {
+    font-family: "Inter", "Poppins", "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  
+  body {
+    @apply bg-bg text-fg min-h-screen;
+    line-height: 1.6;
+    font-size: 16px;
+    background: radial-gradient(circle at 20% 50%, rgba(229, 57, 53, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(229, 57, 53, 0.05) 0%, transparent 70%),
+                linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    font-stretch: condensed;
+  }
+  
+  h1 { @apply text-4xl; }
+  h2 { @apply text-3xl; }
+  h3 { @apply text-xl; }
+  
+  /* Focus ring for accessibility */
+  *:focus {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  /* Delabs glassmorphism card */
+  .samsung-card {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    transition: all 300ms ease-out;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .samsung-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+  
+  .samsung-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Delabs-style buttons */
+  .samsung-btn {
+    @apply px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .samsung-btn-primary {
+    @apply samsung-btn bg-accent text-white hover:bg-delabs-dark-alt;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .samsung-btn-primary:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .samsung-btn-secondary {
+    @apply samsung-btn;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+  }
+  
+  .samsung-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(26, 26, 26, 0.9);
+  }
+  
+  .samsung-btn-outline {
+    @apply samsung-btn bg-delabs-surface text-white border border-line hover:bg-accent;
+  }
+  
+  /* Tier badges - keeping gaming context but Samsung style */
+  .tier-best {
+    @apply bg-tier-gold text-white px-3 py-1 rounded-md text-sm font-semibold;
+  }
+  
+  .tier-partner {
+    @apply bg-tier-silver text-white px-3 py-1 rounded-md text-sm font-semibold;
+  }
+  
+  .tier-normal {
+    @apply bg-tier-bronze text-white px-3 py-1 rounded-md text-sm font-semibold;
+  }
+  
+  /* Platform badges - Delabs dark style */
+  .platform-badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold border backdrop-blur-md;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .platform-youtube {
+    background: rgba(26, 26, 26, 0.8);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .platform-facebook {
+    background: rgba(26, 26, 26, 0.8);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .platform-twitch {
+    background: rgba(26, 26, 26, 0.8);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Live badge */
+  .live-badge {
+    @apply bg-red-500 text-white px-2 py-1 rounded text-xs font-medium;
+  }
+  
+  /* Content sections */
+  .section-spacing {
+    @apply py-4 md:py-6;
+  }
+  
+  /* Grid system */
+  .samsung-grid {
+    @apply grid grid-cols-12 gap-6 lg:gap-8;
+  }
+  
+  /* Text utilities - Remove circular dependencies */
+  .text-muted {
+    color: #6B7280;
+  }
+  
+  .text-accent {
+    color: #111827;
+  }
+  
+    /* Text shadow utilities */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Dark dropdown styling */
+  select option {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    padding: 8px 12px;
+  }
+
+  select option:hover,
+  select option:focus {
+    background-color: #2A2A2A;
+  }
+}

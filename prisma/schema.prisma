@@ -1,0 +1,296 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 創作者模型
+model Creator {
+  id              String    @id @default(cuid())
+  name            String
+  email           String?   @unique
+  avatar          String?
+  region          String    @default("Thailand") // Taiwan, Thailand, etc.
+  tier            String    @default("Normal") // Best, Partner, Normal
+  isSuperAdmin    Boolean   @default(false) // Super admin privileges
+  isLive          Boolean   @default(false)
+  totalPoints     Int       @default(0)
+  contentPoints   Int       @default(0)
+  referralPoints  Int       @default(0)
+  estimatedReward Float     @default(0.0)
+  manualMode      Boolean   @default(false)
+  
+  // Game Referral System Fields
+  referralLink    String?   // Full referral link: https://liff.line.me/2007766108-9og1BJZq?startapp=U_23F142F4
+  uidHEX          String?   // Extracted UID HEX: 23F142F4
+  referralCount   Int       @default(0) // Number of referred players from game API
+  purchaseAmountTotal Float @default(0.0) // Total purchase amount from referred players
+  lastReferralSync DateTime? // Last time referral data was synced from game API
+  leaderboardScore Int      @default(0) // Weighted normalized score for leaderboard ranking (0-100)
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // 關聯
+  platforms       PlatformConnection[]
+  contents        Content[]
+  metrics         CreatorMetrics[]
+  comments        SupportComment[]
+  referrals       Referral[]
+  
+  @@map("creators")
+}
+
+// 平台連接 (OAuth)
+model PlatformConnection {
+  id            String    @id @default(cuid())
+  creatorId     String
+  platform      Platform
+  platformId    String    // Platform-specific user/channel ID
+  username      String
+  accessToken   String?   // Encrypted
+  refreshToken  String?   // Encrypted
+  tokenExpiry   DateTime?
+  isActive      Boolean   @default(true)
+  lastSync      DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // 關聯
+  creator       Creator   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  contents      Content[]
+  
+  @@unique([creatorId, platform])
+  @@map("platform_connections")
+}
+
+// 內容 (影片/直播)
+model Content {
+  id              String    @id @default(cuid())
+  creatorId       String
+  platformId      String
+  contentType     ContentType
+  platform        Platform
+  platformVideoId String    // YouTube video ID, Facebook post ID, etc.
+  title           String
+  description     String?
+  thumbnailUrl    String?
+  originalUrl     String?   // Original URL submitted by user
+  duration        Int?      // Duration in seconds
+  publishedAt     DateTime
+  isLive          Boolean   @default(false)
+  liveStatus      String?   // live, upcoming, ended
+  validationStatus ValidationStatus @default(PENDING)
+  tags            String[]  @default([])
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // 關聯
+  creator         Creator   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  platformConnection PlatformConnection @relation(fields: [platformId], references: [id])
+  metrics         ContentMetrics[]
+  analytics       ContentAnalytics[]
+  
+  @@unique([platform, platformVideoId])
+  @@map("contents")
+}
+
+// 內容指標 (從 API 獲取的基本數據)
+model ContentMetrics {
+  id            String    @id @default(cuid())
+  contentId     String
+  
+  // 通用指標
+  views         Int       @default(0)
+  likes         Int       @default(0)
+  dislikes      Int       @default(0)
+  comments      Int       @default(0)
+  shares        Int       @default(0)
+  
+  // YouTube 特定
+  subscribersGained Int?
+  impressions   Int?
+  clickThroughRate Float?
+  averageViewDuration Int? // seconds
+  
+  // Facebook 特定
+  reach         Int?
+  engagement    Int?
+  reactions     Int?
+  
+  // Twitch 特定
+  peakViewers   Int?
+  averageViewers Int?
+  chatMessages  Int?
+  followers     Int?
+  
+  retrievedAt   DateTime  @default(now())
+  
+  // 關聯
+  content       Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  
+  @@map("content_metrics")
+}
+
+// 詳細分析數據
+model ContentAnalytics {
+  id              String    @id @default(cuid())
+  contentId       String
+  
+  // 觀眾分析
+  audienceRetention Json?   // Retention curve data
+  demographics    Json?     // Age, gender, geography breakdown
+  trafficSources  Json?     // Where viewers came from
+  playbackLocations Json?   // Where content was watched
+  deviceTypes     Json?     // Mobile, desktop, TV, etc.
+  
+  // 時間分析
+  watchTimeMinutes Float?
+  averageWatchTime Float?   // Percentage
+  peakConcurrentViewers Int?
+  
+  // 互動分析
+  engagementRate  Float?
+  commentSentiment Json?    // Positive, negative, neutral breakdown
+  topComments     Json?     // Most liked/replied comments
+  
+  retrievedAt     DateTime  @default(now())
+  
+  // 關聯
+  content         Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  
+  @@map("content_analytics")
+}
+
+// 創作者整體指標
+model CreatorMetrics {
+  id              String    @id @default(cuid())
+  creatorId       String
+  platform        Platform
+  
+  // 頻道指標
+  subscriberCount Int       @default(0)
+  totalViews      Int       @default(0)
+  totalVideos     Int       @default(0)
+  
+  // 計算得出的分數
+  contentScore    Float     @default(0.0)
+  engagementScore Float     @default(0.0)
+  growthScore     Float     @default(0.0)
+  qualityScore    Float     @default(0.0)
+  
+  // 時間範圍
+  periodStart     DateTime
+  periodEnd       DateTime
+  retrievedAt     DateTime  @default(now())
+  
+  // 關聯
+  creator         Creator   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  
+  @@map("creator_metrics")
+}
+
+// 推薦/轉介
+model Referral {
+  id            String    @id @default(cuid())
+  creatorId     String
+  referredUserId String?  // If tracking individual users
+  referralCode  String?
+  type          ReferralType
+  amount        Float     // IAP or On-chain spending amount
+  currency      String    @default("USD")
+  gameData      Json?     // Game-specific data
+  processedAt   DateTime  @default(now())
+  
+  // 關聯
+  creator       Creator   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  
+  @@map("referrals")
+}
+
+// 支持評論
+model SupportComment {
+  id          String    @id @default(cuid())
+  creatorId   String
+  playerName  String
+  comment     String
+  rating      Int?      // 1-5 stars
+  isVerified  Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  
+  // 關聯
+  creator     Creator   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  
+  @@map("support_comments")
+}
+
+// 系統公告
+model Announcement {
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  type        AnnouncementType @default(INFO)
+  isActive    Boolean   @default(true)
+  priority    Int       @default(0)
+  imageUrl    String?
+  linkUrl     String?
+  createdAt   DateTime  @default(now())
+  expiresAt   DateTime?
+  
+  @@map("announcements")
+}
+
+// 賽季/輪次管理
+model Season {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  isActive    Boolean   @default(false)
+  rewards     Json?     // Reward structure
+  rules       Json?     // Scoring rules
+  createdAt   DateTime  @default(now())
+  
+  @@map("seasons")
+}
+
+// 枚舉類型
+enum Platform {
+  YOUTUBE
+  FACEBOOK
+  TWITCH
+}
+
+enum ContentType {
+  VIDEO
+  LIVE_STREAM
+  SHORT
+  POST
+}
+
+enum ValidationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  UNDER_REVIEW
+}
+
+enum ReferralType {
+  IAP_SPENDING
+  ONCHAIN_SPENDING
+  REGISTRATION
+}
+
+enum AnnouncementType {
+  INFO
+  WARNING
+  SUCCESS
+  PROMOTION
+}
