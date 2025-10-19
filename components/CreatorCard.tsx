@@ -24,9 +24,10 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
   const getPlatformBadge = (platform: string) => {
     const baseClasses = "platform-badge";
     switch (platform) {
-      case 'Telegram': return `${baseClasses} platform-youtube`;
-      case 'Mobile': return `${baseClasses} platform-facebook`;
-      case 'Web': return `${baseClasses} platform-twitch`;
+      case 'YouTube': return `${baseClasses} platform-youtube`;
+      case 'Twitch': return `${baseClasses} platform-facebook`;
+      case 'Facebook': return `${baseClasses} platform-twitch`;
+      case 'X': return `${baseClasses} platform-youtube`;
       default: return `${baseClasses} bg-gray-100 text-gray-700 border-gray-300`;
     }
   };
@@ -73,9 +74,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           <div className="flex-shrink-0">
             <div className="text-right">
               <div className="text-2xl font-bold text-brand mb-1">
-                {creator.sparkPoints?.toLocaleString() || '0'}
+                {creator.referralCount?.toLocaleString() || '0'}
               </div>
-              <div className="text-sm text-fg-muted">Spark Points</div>
+              <div className="text-sm text-fg-muted">Referrals</div>
             </div>
           </div>
 
@@ -128,9 +129,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           <div className="flex-shrink-0">
             <div className="text-right">
               <div className="text-3xl font-bold text-brand mb-1">
-                {creator.sparkPoints?.toLocaleString() || '0'}
+                {creator.referralCount?.toLocaleString() || '0'}
               </div>
-              <div className="text-sm text-fg-muted">Spark Points</div>
+              <div className="text-sm text-fg-muted">Referrals</div>
             </div>
           </div>
 

@@ -49,8 +49,8 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Play Spekter Agency - Telegram Game</title>
-        <meta name="description" content="Start your spirit hunting adventure in Spekter Agency. Play the rogue-lite survivor game on Telegram and earn Spark points!" />
+        <title>Creator Competition - Spekter Games</title>
+        <meta name="description" content="Join the creator competition! Create content, get referrals, and earn rewards. Compete with other creators from YouTube, Twitch, Facebook, and X." />
       </Head>
 
       <div className="min-h-screen bg-bg relative overflow-hidden">
@@ -78,6 +78,14 @@ export default function Login() {
 
             <div className="space-y-4">
               <button
+                onClick={handleXLogin}
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-gray-800/25"
+              >
+                <img src="/X-logo.png" alt="X" className="w-5 h-5" />
+                <span>Login with X</span>
+              </button>
+
+              <button
                 onClick={handleYouTubeLogin}
                 className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-red-500/25"
               >
@@ -100,19 +108,11 @@ export default function Login() {
                 <img src="/facebook.png" alt="Facebook" className="w-5 h-5" />
                 <span>Login with Facebook</span>
               </button>
-
-              <button
-                onClick={handleXLogin}
-                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-gray-800/25"
-              >
-                <img src="/X-logo.png" alt="X" className="w-5 h-5" />
-                <span>Login with X</span>
-              </button>
             </div>
 
             <div className="mt-6 text-center">
               <p className="text-xs text-muted">
-                Connect your social accounts to start your spirit hunting journey
+                Join the creator competition • Create content • Earn rewards
               </p>
             </div>
             </div>

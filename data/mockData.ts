@@ -1,34 +1,33 @@
 export interface Creator {
   id: string;
   name: string;
-  platforms: ('Telegram' | 'Mobile' | 'Web')[];
-  spiritsHunted: number;
-  missionsCompleted: number;
-  sparkPoints: number;
-  comboPoints: number;
+  platforms: ('YouTube' | 'Twitch' | 'Facebook' | 'X')[];
+  contentCount: number;
+  totalViews: number;
+  referralCount: number;
+  iapGenerated: number;
   iapSpending: number;
   onchainSpending: number;
   newPlayers: number;
   totalPoints: number;
-  tier: 'Master' | 'Expert' | 'Hunter';
+  tier: 'Master' | 'Expert' | 'Creator';
   isLive: boolean;
   avatar: string;
   region: 'Global' | 'Asia' | 'Americas';
   leaderboardScore?: number;
-  referralCount?: number;
   purchaseAmountTotal?: number;
 }
 
 export interface ContentItem {
   id: string;
-  platform: 'Telegram' | 'Mobile' | 'Web';
-  type: 'Spirit Hunt' | 'Mission' | 'Combo';
+  platform: 'YouTube' | 'Twitch' | 'Facebook' | 'X';
+  type: 'Video' | 'Stream' | 'Post';
   title: string;
   date: string;
   duration: string;
-  spiritsHunted: number;
-  sparkEarned: number;
-  combos: number;
+  views: number;
+  likes: number;
+  shares: number;
   valid: boolean;
   thumbnail: string;
 }
@@ -47,17 +46,17 @@ const generateRandomScore = () => Math.floor(Math.random() * 5400) + 100;
 // Helper function to generate random avatar URL
 const generateAvatar = (seed: string) => `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}`;
 
-// Mock creators data - 50 spirit hunters with diverse profiles
+// Mock creators data - 50 content creators with diverse profiles
 export const mockCreators: Creator[] = [
-  // Top Tier Spirit Hunters (Master)
+  // Top Tier Content Creators (Master)
   {
     id: "twro-meet",
     name: "twro相見",
-    platforms: ["Telegram", "Mobile"],
-    spiritsHunted: 156789,
-    missionsCompleted: 1423,
-    sparkPoints: 45600,
-    comboPoints: 67800,
+    platforms: ["YouTube", "Twitch"],
+    contentCount: 156789,
+    totalViews: 1423,
+    referralCount: 45600,
+    iapGenerated: 67800,
     iapSpending: 89400,
     onchainSpending: 56700,
     newPlayers: 2134,
@@ -70,11 +69,11 @@ export const mockCreators: Creator[] = [
   {
     id: "shorty-bluejova",
     name: "Shorty Bluejova",
-    platforms: ["Telegram"],
-    spiritsHunted: 89543,
-    missionsCompleted: 892,
-    sparkPoints: 28900,
-    comboPoints: 34200,
+    platforms: ["YouTube"],
+    contentCount: 89543,
+    totalViews: 892,
+    referralCount: 28900,
+    iapGenerated: 34200,
     iapSpending: 45600,
     onchainSpending: 28900,
     newPlayers: 1240,
@@ -87,11 +86,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ares",
     name: "阿瑞斯Ares",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 78901,
-    missionsCompleted: 789,
-    sparkPoints: 34500,
-    comboPoints: 45600,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 78901,
+    totalViews: 789,
+    referralCount: 34500,
+    iapGenerated: 45600,
     iapSpending: 56700,
     onchainSpending: 34500,
     newPlayers: 1123,
@@ -104,11 +103,11 @@ export const mockCreators: Creator[] = [
   {
     id: "smile",
     name: "微笑",
-    platforms: ["Telegram", "Web", "Mobile"],
-    spiritsHunted: 67890,
-    missionsCompleted: 567,
-    sparkPoints: 23400,
-    comboPoints: 28900,
+    platforms: ["YouTube", "Facebook", "Twitch"],
+    contentCount: 67890,
+    totalViews: 567,
+    referralCount: 23400,
+    iapGenerated: 28900,
     iapSpending: 34500,
     onchainSpending: 23400,
     newPlayers: 890,
@@ -121,11 +120,11 @@ export const mockCreators: Creator[] = [
   {
     id: "game-master-th",
     name: "GameMaster TH",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 123456,
-    missionsCompleted: 1234,
-    sparkPoints: 38900,
-    comboPoints: 45600,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 123456,
+    totalViews: 1234,
+    referralCount: 38900,
+    iapGenerated: 45600,
     iapSpending: 67800,
     onchainSpending: 38900,
     newPlayers: 1456,
@@ -138,11 +137,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-legend-tw",
     name: "RO傳奇台灣",
-    platforms: ["Telegram", "Mobile"],
-    spiritsHunted: 98765,
-    missionsCompleted: 987,
-    sparkPoints: 31200,
-    comboPoints: 38900,
+    platforms: ["YouTube", "Twitch"],
+    contentCount: 98765,
+    totalViews: 987,
+    referralCount: 31200,
+    iapGenerated: 38900,
     iapSpending: 45600,
     onchainSpending: 31200,
     newPlayers: 1123,
@@ -155,11 +154,11 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-pro",
     name: "ThaiGamer Pro",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 87654,
-    missionsCompleted: 876,
-    sparkPoints: 26700,
-    comboPoints: 33400,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 87654,
+    totalViews: 876,
+    referralCount: 26700,
+    iapGenerated: 33400,
     iapSpending: 38900,
     onchainSpending: 26700,
     newPlayers: 987,
@@ -172,11 +171,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-king-tw",
     name: "RO王者台灣",
-    platforms: ["Telegram"],
-    spiritsHunted: 76543,
-    missionsCompleted: 765,
-    sparkPoints: 24500,
-    comboPoints: 31200,
+    platforms: ["YouTube"],
+    contentCount: 76543,
+    totalViews: 765,
+    referralCount: 24500,
+    iapGenerated: 31200,
     iapSpending: 34500,
     onchainSpending: 24500,
     newPlayers: 876,
@@ -191,11 +190,11 @@ export const mockCreators: Creator[] = [
   {
     id: "stanley",
     name: "Stanley 史丹利",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 23890,
-    missionsCompleted: 234,
-    sparkPoints: 8900,
-    comboPoints: 12400,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 23890,
+    totalViews: 234,
+    referralCount: 8900,
+    iapGenerated: 12400,
     iapSpending: 18900,
     onchainSpending: 9800,
     newPlayers: 456,
@@ -208,11 +207,11 @@ export const mockCreators: Creator[] = [
   {
     id: "daching-otaku",
     name: "大晴小宅男Daching",
-    platforms: ["Web"],
-    spiritsHunted: 34567,
-    missionsCompleted: 345,
-    sparkPoints: 15600,
-    comboPoints: 19800,
+    platforms: ["Facebook"],
+    contentCount: 34567,
+    totalViews: 345,
+    referralCount: 15600,
+    iapGenerated: 19800,
     iapSpending: 28900,
     onchainSpending: 15600,
     newPlayers: 678,
@@ -225,11 +224,11 @@ export const mockCreators: Creator[] = [
   {
     id: "achang-boss",
     name: "阿昌老闆",
-    platforms: ["Mobile"],
-    spiritsHunted: 45678,
-    missionsCompleted: 456,
-    sparkPoints: 18900,
-    comboPoints: 23400,
+    platforms: ["Twitch"],
+    contentCount: 45678,
+    totalViews: 456,
+    referralCount: 18900,
+    iapGenerated: 23400,
     iapSpending: 29800,
     onchainSpending: 18900,
     newPlayers: 567,
@@ -242,11 +241,11 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-streamer-1",
     name: "ThaiStreamer01",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 54321,
-    missionsCompleted: 543,
-    sparkPoints: 19800,
-    comboPoints: 24500,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 54321,
+    totalViews: 543,
+    referralCount: 19800,
+    iapGenerated: 24500,
     iapSpending: 31200,
     onchainSpending: 19800,
     newPlayers: 654,
@@ -259,11 +258,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-expert-tw",
     name: "RO專家台灣",
-    platforms: ["Telegram", "Mobile"],
-    spiritsHunted: 43210,
-    missionsCompleted: 432,
-    sparkPoints: 16700,
-    comboPoints: 21200,
+    platforms: ["YouTube", "Twitch"],
+    contentCount: 43210,
+    totalViews: 432,
+    referralCount: 16700,
+    iapGenerated: 21200,
     iapSpending: 26700,
     onchainSpending: 16700,
     newPlayers: 543,
@@ -276,11 +275,11 @@ export const mockCreators: Creator[] = [
   {
     id: "gaming-thai",
     name: "Gaming Thai",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 32109,
-    missionsCompleted: 321,
-    sparkPoints: 13400,
-    comboPoints: 17800,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 32109,
+    totalViews: 321,
+    referralCount: 13400,
+    iapGenerated: 17800,
     iapSpending: 22300,
     onchainSpending: 13400,
     newPlayers: 432,
@@ -293,11 +292,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-master-tw",
     name: "RO大師台灣",
-    platforms: ["Telegram"],
-    spiritsHunted: 21098,
-    missionsCompleted: 210,
-    sparkPoints: 11200,
-    comboPoints: 14500,
+    platforms: ["YouTube"],
+    contentCount: 21098,
+    totalViews: 210,
+    referralCount: 11200,
+    iapGenerated: 14500,
     iapSpending: 17800,
     onchainSpending: 11200,
     newPlayers: 321,
@@ -310,11 +309,11 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-2",
     name: "ThaiGamer02",
-    platforms: ["Telegram", "Web", "Mobile"],
-    spiritsHunted: 19876,
-    missionsCompleted: 198,
-    sparkPoints: 9800,
-    comboPoints: 12300,
+    platforms: ["YouTube", "Facebook", "Twitch"],
+    contentCount: 19876,
+    totalViews: 198,
+    referralCount: 9800,
+    iapGenerated: 12300,
     iapSpending: 14500,
     onchainSpending: 9800,
     newPlayers: 210,
@@ -327,11 +326,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-legend-tw-2",
     name: "RO傳說台灣",
-    platforms: ["Web"],
-    spiritsHunted: 18765,
-    missionsCompleted: 187,
-    sparkPoints: 8900,
-    comboPoints: 11200,
+    platforms: ["Facebook"],
+    contentCount: 18765,
+    totalViews: 187,
+    referralCount: 8900,
+    iapGenerated: 11200,
     iapSpending: 13400,
     onchainSpending: 8900,
     newPlayers: 198,
@@ -344,11 +343,11 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-ro-player",
     name: "ThaiRO Player",
-    platforms: ["Mobile"],
-    spiritsHunted: 17654,
-    missionsCompleted: 176,
-    sparkPoints: 7800,
-    comboPoints: 9800,
+    platforms: ["Twitch"],
+    contentCount: 17654,
+    totalViews: 176,
+    referralCount: 7800,
+    iapGenerated: 9800,
     iapSpending: 11200,
     onchainSpending: 7800,
     newPlayers: 187,
@@ -361,11 +360,11 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-hero-tw",
     name: "RO英雄台灣",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 16543,
-    missionsCompleted: 165,
-    sparkPoints: 6700,
-    comboPoints: 8900,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 16543,
+    totalViews: 165,
+    referralCount: 6700,
+    iapGenerated: 8900,
     iapSpending: 9800,
     onchainSpending: 6700,
     newPlayers: 176,
@@ -380,16 +379,16 @@ export const mockCreators: Creator[] = [
   {
     id: "barry",
     name: "貝瑞Barry",
-    platforms: ["Telegram"],
-    spiritsHunted: 12345,
-    missionsCompleted: 123,
-    sparkPoints: 4500,
-    comboPoints: 6700,
+    platforms: ["YouTube"],
+    contentCount: 12345,
+    totalViews: 123,
+    referralCount: 4500,
+    iapGenerated: 6700,
     iapSpending: 8900,
     onchainSpending: 4500,
     newPlayers: 234,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("barry"),
     region: "Asia"
@@ -397,16 +396,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ayi",
     name: "阿翊",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 23456,
-    missionsCompleted: 234,
-    sparkPoints: 8900,
-    comboPoints: 12300,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 23456,
+    totalViews: 234,
+    referralCount: 8900,
+    iapGenerated: 12300,
     iapSpending: 15600,
     onchainSpending: 8900,
     newPlayers: 345,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ayi"),
     region: "Asia"
@@ -414,16 +413,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-3",
     name: "ThaiGamer03",
-    platforms: ["Telegram"],
-    spiritsHunted: 15432,
-    missionsCompleted: 154,
-    sparkPoints: 5600,
-    comboPoints: 7800,
+    platforms: ["YouTube"],
+    contentCount: 15432,
+    totalViews: 154,
+    referralCount: 5600,
+    iapGenerated: 7800,
     iapSpending: 9800,
     onchainSpending: 5600,
     newPlayers: 165,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-3"),
     region: "Global"
@@ -431,16 +430,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-newbie-tw",
     name: "RO新手台灣",
-    platforms: ["Web"],
-    spiritsHunted: 14321,
-    missionsCompleted: 143,
-    sparkPoints: 4500,
-    comboPoints: 6700,
+    platforms: ["Facebook"],
+    contentCount: 14321,
+    totalViews: 143,
+    referralCount: 4500,
+    iapGenerated: 6700,
     iapSpending: 7800,
     onchainSpending: 4500,
     newPlayers: 154,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-newbie-tw"),
     region: "Asia"
@@ -448,16 +447,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-streamer-2",
     name: "ThaiStreamer02",
-    platforms: ["Mobile"],
-    spiritsHunted: 13210,
-    missionsCompleted: 132,
-    sparkPoints: 3400,
-    comboPoints: 5600,
+    platforms: ["Twitch"],
+    contentCount: 13210,
+    totalViews: 132,
+    referralCount: 3400,
+    iapGenerated: 5600,
     iapSpending: 6700,
     onchainSpending: 3400,
     newPlayers: 143,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-streamer-2"),
     region: "Global"
@@ -465,16 +464,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-fan-tw",
     name: "RO粉絲台灣",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 12109,
-    missionsCompleted: 121,
-    sparkPoints: 2800,
-    comboPoints: 4500,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 12109,
+    totalViews: 121,
+    referralCount: 2800,
+    iapGenerated: 4500,
     iapSpending: 5600,
     onchainSpending: 2800,
     newPlayers: 132,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-fan-tw"),
     region: "Asia"
@@ -482,16 +481,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-4",
     name: "ThaiGamer04",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 11098,
-    missionsCompleted: 110,
-    sparkPoints: 2200,
-    comboPoints: 3400,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 11098,
+    totalViews: 110,
+    referralCount: 2200,
+    iapGenerated: 3400,
     iapSpending: 4500,
     onchainSpending: 2200,
     newPlayers: 121,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-4"),
     region: "Global"
@@ -499,16 +498,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-player-tw",
     name: "RO玩家台灣",
-    platforms: ["Telegram"],
-    spiritsHunted: 10987,
-    missionsCompleted: 109,
-    sparkPoints: 1800,
-    comboPoints: 2800,
+    platforms: ["YouTube"],
+    contentCount: 10987,
+    totalViews: 109,
+    referralCount: 1800,
+    iapGenerated: 2800,
     iapSpending: 3400,
     onchainSpending: 1800,
     newPlayers: 110,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-player-tw"),
     region: "Asia"
@@ -516,16 +515,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-ro-fan",
     name: "ThaiRO Fan",
-    platforms: ["Mobile"],
-    spiritsHunted: 9876,
-    missionsCompleted: 98,
-    sparkPoints: 1400,
-    comboPoints: 2200,
+    platforms: ["Twitch"],
+    contentCount: 9876,
+    totalViews: 98,
+    referralCount: 1400,
+    iapGenerated: 2200,
     iapSpending: 2800,
     onchainSpending: 1400,
     newPlayers: 109,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-ro-fan"),
     region: "Global"
@@ -533,16 +532,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-beginner-tw",
     name: "RO初學者台灣",
-    platforms: ["Web"],
-    spiritsHunted: 8765,
-    missionsCompleted: 87,
-    sparkPoints: 1000,
-    comboPoints: 1800,
+    platforms: ["Facebook"],
+    contentCount: 8765,
+    totalViews: 87,
+    referralCount: 1000,
+    iapGenerated: 1800,
     iapSpending: 2200,
     onchainSpending: 1000,
     newPlayers: 98,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-beginner-tw"),
     region: "Asia"
@@ -550,16 +549,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-5",
     name: "ThaiGamer05",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 7654,
-    missionsCompleted: 76,
-    sparkPoints: 800,
-    comboPoints: 1400,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 7654,
+    totalViews: 76,
+    referralCount: 800,
+    iapGenerated: 1400,
     iapSpending: 1800,
     onchainSpending: 800,
     newPlayers: 87,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-5"),
     region: "Global"
@@ -567,16 +566,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-casual-tw",
     name: "RO休閒台灣",
-    platforms: ["Mobile"],
-    spiritsHunted: 6543,
-    missionsCompleted: 65,
-    sparkPoints: 600,
-    comboPoints: 1000,
+    platforms: ["Twitch"],
+    contentCount: 6543,
+    totalViews: 65,
+    referralCount: 600,
+    iapGenerated: 1000,
     iapSpending: 1400,
     onchainSpending: 600,
     newPlayers: 76,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-casual-tw"),
     region: "Asia"
@@ -584,16 +583,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-streamer-3",
     name: "ThaiStreamer03",
-    platforms: ["Web"],
-    spiritsHunted: 5432,
-    missionsCompleted: 54,
-    sparkPoints: 400,
-    comboPoints: 800,
+    platforms: ["Facebook"],
+    contentCount: 5432,
+    totalViews: 54,
+    referralCount: 400,
+    iapGenerated: 800,
     iapSpending: 1000,
     onchainSpending: 400,
     newPlayers: 65,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-streamer-3"),
     region: "Global"
@@ -601,16 +600,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-fanatic-tw",
     name: "RO狂熱台灣",
-    platforms: ["Telegram", "Mobile"],
-    spiritsHunted: 4321,
-    missionsCompleted: 43,
-    sparkPoints: 300,
-    comboPoints: 600,
+    platforms: ["YouTube", "Twitch"],
+    contentCount: 4321,
+    totalViews: 43,
+    referralCount: 300,
+    iapGenerated: 600,
     iapSpending: 800,
     onchainSpending: 300,
     newPlayers: 54,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-fanatic-tw"),
     region: "Asia"
@@ -618,16 +617,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-6",
     name: "ThaiGamer06",
-    platforms: ["Telegram"],
-    spiritsHunted: 3210,
-    missionsCompleted: 32,
-    sparkPoints: 200,
-    comboPoints: 400,
+    platforms: ["YouTube"],
+    contentCount: 3210,
+    totalViews: 32,
+    referralCount: 200,
+    iapGenerated: 400,
     iapSpending: 600,
     onchainSpending: 200,
     newPlayers: 43,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-6"),
     region: "Global"
@@ -635,16 +634,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-enthusiast-tw",
     name: "RO愛好者台灣",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 2109,
-    missionsCompleted: 21,
-    sparkPoints: 150,
-    comboPoints: 300,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 2109,
+    totalViews: 21,
+    referralCount: 150,
+    iapGenerated: 300,
     iapSpending: 400,
     onchainSpending: 150,
     newPlayers: 32,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-enthusiast-tw"),
     region: "Asia"
@@ -652,16 +651,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-ro-newbie",
     name: "ThaiRO Newbie",
-    platforms: ["Mobile"],
-    spiritsHunted: 1098,
-    missionsCompleted: 10,
-    sparkPoints: 100,
-    comboPoints: 200,
+    platforms: ["Twitch"],
+    contentCount: 1098,
+    totalViews: 10,
+    referralCount: 100,
+    iapGenerated: 200,
     iapSpending: 300,
     onchainSpending: 100,
     newPlayers: 21,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-ro-newbie"),
     region: "Global"
@@ -669,16 +668,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-starter-tw",
     name: "RO新手台灣2",
-    platforms: ["Telegram"],
-    spiritsHunted: 987,
-    missionsCompleted: 9,
-    sparkPoints: 80,
-    comboPoints: 150,
+    platforms: ["YouTube"],
+    contentCount: 987,
+    totalViews: 9,
+    referralCount: 80,
+    iapGenerated: 150,
     iapSpending: 200,
     onchainSpending: 80,
     newPlayers: 10,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-starter-tw"),
     region: "Asia"
@@ -686,16 +685,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-7",
     name: "ThaiGamer07",
-    platforms: ["Web"],
-    spiritsHunted: 876,
-    missionsCompleted: 8,
-    sparkPoints: 60,
-    comboPoints: 100,
+    platforms: ["Facebook"],
+    contentCount: 876,
+    totalViews: 8,
+    referralCount: 60,
+    iapGenerated: 100,
     iapSpending: 150,
     onchainSpending: 60,
     newPlayers: 9,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-7"),
     region: "Global"
@@ -703,16 +702,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-explorer-tw",
     name: "RO探索者台灣",
-    platforms: ["Telegram", "Web", "Mobile"],
-    spiritsHunted: 765,
-    missionsCompleted: 7,
-    sparkPoints: 40,
-    comboPoints: 80,
+    platforms: ["YouTube", "Facebook", "Twitch"],
+    contentCount: 765,
+    totalViews: 7,
+    referralCount: 40,
+    iapGenerated: 80,
     iapSpending: 100,
     onchainSpending: 40,
     newPlayers: 8,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-explorer-tw"),
     region: "Asia"
@@ -720,16 +719,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-streamer-4",
     name: "ThaiStreamer04",
-    platforms: ["Mobile"],
-    spiritsHunted: 654,
-    missionsCompleted: 6,
-    sparkPoints: 30,
-    comboPoints: 60,
+    platforms: ["Twitch"],
+    contentCount: 654,
+    totalViews: 6,
+    referralCount: 30,
+    iapGenerated: 60,
     iapSpending: 80,
     onchainSpending: 30,
     newPlayers: 7,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-streamer-4"),
     region: "Global"
@@ -737,16 +736,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-adventurer-tw",
     name: "RO冒險者台灣",
-    platforms: ["Web"],
-    spiritsHunted: 543,
-    missionsCompleted: 5,
-    sparkPoints: 20,
-    comboPoints: 40,
+    platforms: ["Facebook"],
+    contentCount: 543,
+    totalViews: 5,
+    referralCount: 20,
+    iapGenerated: 40,
     iapSpending: 60,
     onchainSpending: 20,
     newPlayers: 6,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-adventurer-tw"),
     region: "Asia"
@@ -754,16 +753,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-8",
     name: "ThaiGamer08",
-    platforms: ["Telegram"],
-    spiritsHunted: 432,
-    missionsCompleted: 4,
-    sparkPoints: 15,
-    comboPoints: 30,
+    platforms: ["YouTube"],
+    contentCount: 432,
+    totalViews: 4,
+    referralCount: 15,
+    iapGenerated: 30,
     iapSpending: 40,
     onchainSpending: 15,
     newPlayers: 5,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-8"),
     region: "Global"
@@ -771,16 +770,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-wanderer-tw",
     name: "RO漫遊者台灣",
-    platforms: ["Telegram", "Mobile"],
-    spiritsHunted: 321,
-    missionsCompleted: 3,
-    sparkPoints: 10,
-    comboPoints: 20,
+    platforms: ["YouTube", "Twitch"],
+    contentCount: 321,
+    totalViews: 3,
+    referralCount: 10,
+    iapGenerated: 20,
     iapSpending: 30,
     onchainSpending: 10,
     newPlayers: 4,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-wanderer-tw"),
     region: "Asia"
@@ -788,16 +787,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-ro-casual",
     name: "ThaiRO Casual",
-    platforms: ["Web", "Mobile"],
-    spiritsHunted: 210,
-    missionsCompleted: 2,
-    sparkPoints: 8,
-    comboPoints: 15,
+    platforms: ["Facebook", "Twitch"],
+    contentCount: 210,
+    totalViews: 2,
+    referralCount: 8,
+    iapGenerated: 15,
     iapSpending: 20,
     onchainSpending: 8,
     newPlayers: 3,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-ro-casual"),
     region: "Global"
@@ -805,16 +804,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-traveler-tw",
     name: "RO旅行者台灣",
-    platforms: ["Telegram"],
-    spiritsHunted: 109,
-    missionsCompleted: 1,
-    sparkPoints: 5,
-    comboPoints: 10,
+    platforms: ["YouTube"],
+    contentCount: 109,
+    totalViews: 1,
+    referralCount: 5,
+    iapGenerated: 10,
     iapSpending: 15,
     onchainSpending: 5,
     newPlayers: 2,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-traveler-tw"),
     region: "Asia"
@@ -822,16 +821,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-gamer-9",
     name: "ThaiGamer09",
-    platforms: ["Web"],
-    spiritsHunted: 98,
-    missionsCompleted: 1,
-    sparkPoints: 3,
-    comboPoints: 8,
+    platforms: ["Facebook"],
+    contentCount: 98,
+    totalViews: 1,
+    referralCount: 3,
+    iapGenerated: 8,
     iapSpending: 10,
     onchainSpending: 3,
     newPlayers: 1,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-gamer-9"),
     region: "Global"
@@ -839,16 +838,16 @@ export const mockCreators: Creator[] = [
   {
     id: "ro-pioneer-tw",
     name: "RO先驅者台灣",
-    platforms: ["Mobile"],
-    spiritsHunted: 87,
-    missionsCompleted: 1,
-    sparkPoints: 2,
-    comboPoints: 5,
+    platforms: ["Twitch"],
+    contentCount: 87,
+    totalViews: 1,
+    referralCount: 2,
+    iapGenerated: 5,
     iapSpending: 8,
     onchainSpending: 2,
     newPlayers: 1,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: true,
     avatar: generateAvatar("ro-pioneer-tw"),
     region: "Asia"
@@ -856,16 +855,16 @@ export const mockCreators: Creator[] = [
   {
     id: "thai-streamer-5",
     name: "ThaiStreamer05",
-    platforms: ["Telegram", "Web"],
-    spiritsHunted: 76,
-    missionsCompleted: 1,
-    sparkPoints: 1,
-    comboPoints: 3,
+    platforms: ["YouTube", "Facebook"],
+    contentCount: 76,
+    totalViews: 1,
+    referralCount: 1,
+    iapGenerated: 3,
     iapSpending: 5,
     onchainSpending: 1,
     newPlayers: 1,
     totalPoints: 0, // Will be set below
-    tier: "Hunter",
+    tier: "Creator",
     isLive: false,
     avatar: generateAvatar("thai-streamer-5"),
     region: "Global"
@@ -877,27 +876,27 @@ export const mockContent: { [creatorId: string]: ContentItem[] } = {
   "twro-meet": [
     {
       id: "twro_vid_001",
-      platform: "Telegram",
-      type: "Spirit Hunt",
+      platform: "YouTube",
+      type: "Video",
       title: "【Ragnarok Libre】全台最大監督台《首日開服-敏爆騎士開局》第17版本回到最粗的感動！超無腦完全不肝 區塊鏈遊戲",
       date: "2025-01-15",
       duration: "14:22",
-      spiritsHunted: 35420,
-      sparkEarned: 2890,
-      combos: 456,
+      views: 35420,
+      likes: 2890,
+      shares: 456,
       valid: true,
       thumbnail: "/Creator/Thumbnail1.jpg"
     },
     {
       id: "twro_vid_002",
-      platform: "Mobile",
-      type: "Mission",
+      platform: "Twitch",
+      type: "Stream",
       title: "【Ragnarok Libre】全台最大監督台《第二天-三轉敏爆騎》挑戰東南亞PVP課長群",
       date: "2025-01-13",
       duration: "3:45:10",
-      spiritsHunted: 12800,
-      sparkEarned: 1560,
-      combos: 234,
+      views: 12800,
+      likes: 1560,
+      shares: 234,
       valid: true,
       thumbnail: "/Creator/Thumbnail2.jpg"
     }
@@ -905,40 +904,40 @@ export const mockContent: { [creatorId: string]: ContentItem[] } = {
   "ares": [
     {
       id: "ares_vid_001",
-      platform: "Telegram",
-      type: "Spirit Hunt",
+      platform: "YouTube",
+      type: "Video",
       title: "【Ragnarok Libre】全台最大監督台《首日開服-敏爆騎士開局》第17版本回到最粗的感動！超無腦完全不肝 區塊鏈遊戲",
       date: "2025-01-15",
       duration: "14:22",
-      spiritsHunted: 35420,
-      sparkEarned: 2890,
-      combos: 456,
+      views: 35420,
+      likes: 2890,
+      shares: 456,
       valid: true,
       thumbnail: "/Creator/Thumbnail1.jpg"
     },
     {
       id: "ares_vid_002",
-      platform: "Web",
-      type: "Mission",
+      platform: "Facebook",
+      type: "Stream",
       title: "【Ragnarok Libre】全台最大監督台《第二天-三轉敏爆騎》挑戰東南亞PVP課長群，不RO3沒抽到的來這玩，不課會小卡關慢慢農",
       date: "2025-01-13",
       duration: "3:45:10",
-      spiritsHunted: 12800,
-      sparkEarned: 1560,
-      combos: 234,
+      views: 12800,
+      likes: 1560,
+      shares: 234,
       valid: true,
       thumbnail: "/Creator/Thumbnail2.jpg"
     },
     {
       id: "ares_vid_003",
-      platform: "Telegram",
-      type: "Spirit Hunt",
+      platform: "YouTube",
+      type: "Video",
       title: "【Ragnarok Libre】我就看如何刮分9百萬台幣《第三天-敏爆技能騎士》準備打爆東南亞PVP課長群，單吃個100隻MVP！",
       date: "2025-01-11",
       duration: "18:55",
-      spiritsHunted: 28900,
-      sparkEarned: 2340,
-      combos: 378,
+      views: 28900,
+      likes: 2340,
+      shares: 378,
       valid: true,
       thumbnail: "/Creator/Thumbnail3.jpg"
     }
@@ -946,14 +945,14 @@ export const mockContent: { [creatorId: string]: ContentItem[] } = {
   "shorty-bluejova": [
     {
       id: "shorty_vid_001",
-      platform: "Telegram",
-      type: "Spirit Hunt",
+      platform: "YouTube",
+      type: "Video",
       title: "【Ragnarok Libre】Thai Server - Best Build Guide for New Players",
       date: "2025-01-14",
       duration: "12:30",
-      spiritsHunted: 28900,
-      sparkEarned: 2340,
-      combos: 378,
+      views: 28900,
+      likes: 2340,
+      shares: 378,
       valid: true,
       thumbnail: "/Creator/Thumbnail1.jpg"
     }
@@ -961,14 +960,14 @@ export const mockContent: { [creatorId: string]: ContentItem[] } = {
   "game-master-th": [
     {
       id: "gm_vid_001",
-      platform: "Telegram",
-      type: "Spirit Hunt",
+      platform: "YouTube",
+      type: "Video",
       title: "【Ragnarok Libre】Thai Server - Ultimate PvP Guide",
       date: "2025-01-12",
       duration: "16:45",
-      spiritsHunted: 45600,
-      sparkEarned: 3450,
-      combos: 567,
+      views: 45600,
+      likes: 3450,
+      shares: 567,
       valid: true,
       thumbnail: "/Creator/Thumbnail2.jpg"
     }
@@ -1038,8 +1037,8 @@ export const currentSeason = {
 };
 
 // Calculate total points as simple sum
-export const calculateTotalPoints = (sparkPoints: number, comboPoints: number) => {
-  return sparkPoints + comboPoints;
+export const calculateTotalPoints = (referralCount: number, iapGenerated: number) => {
+  return referralCount + iapGenerated;
 };
 
 // Generate random scores for all creators and assign them
@@ -1064,9 +1063,9 @@ const generateRandomScores = () => {
 const randomScores = generateRandomScores();
 mockCreators.forEach((creator, index) => {
   creator.totalPoints = randomScores[index];
-  // Update spark points and combo points based on total
-  creator.sparkPoints = Math.floor(creator.totalPoints * 0.6);
-  creator.comboPoints = Math.floor(creator.totalPoints * 0.4);
+  // Update referral count and IAP generated based on total
+  creator.referralCount = Math.floor(creator.totalPoints * 0.6);
+  creator.iapGenerated = Math.floor(creator.totalPoints * 0.4);
 });
 
 // Sort creators by total points for leaderboard

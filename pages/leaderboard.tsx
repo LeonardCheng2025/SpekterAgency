@@ -35,7 +35,7 @@ export default function Leaderboard() {
         // Apply platform filter
         if (selectedPlatform !== 'All') {
           filteredCreators = filteredCreators.filter(creator => 
-            creator.platforms.includes(selectedPlatform as 'Telegram' | 'Mobile' | 'Web')
+            creator.platforms.includes(selectedPlatform as 'YouTube' | 'Twitch' | 'Facebook' | 'X')
           );
         }
       
@@ -57,9 +57,10 @@ export default function Leaderboard() {
     ],
     platforms: [
       { value: 'All', label: 'All Platforms' },
-      { value: 'Telegram', label: 'Telegram' },
-      { value: 'Mobile', label: 'Mobile' },
-      { value: 'Web', label: 'Web' }
+      { value: 'YouTube', label: 'YouTube' },
+      { value: 'Twitch', label: 'Twitch' },
+      { value: 'Facebook', label: 'Facebook' },
+      { value: 'X', label: 'X' }
     ]
   };
 

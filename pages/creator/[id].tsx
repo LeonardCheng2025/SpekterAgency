@@ -213,14 +213,14 @@ export default function CreatorProfile() {
                   // 轉換數據格式以匹配 ContentTile 組件的期望
                   const adaptedContent = {
                     id: item.id,
-                    platform: item.platform as 'Telegram' | 'Mobile' | 'Web',
-                    type: item.contentType as 'Spirit Hunt' | 'Mission' | 'Combo',
+                    platform: item.platform as 'YouTube' | 'Twitch' | 'Facebook' | 'X',
+                    type: item.contentType as 'Video' | 'Stream' | 'Post',
                     title: item.title,
                     date: item.publishedAt,
                     duration: item.duration ? `${Math.floor(item.duration / 60)}:${(item.duration % 60).toString().padStart(2, '0')}` : '0:00',
-                    spiritsHunted: item.latestMetrics?.views || 0,
-                    sparkEarned: item.latestMetrics?.likes || 0,
-                    combos: item.latestMetrics?.comments || 0,
+                    views: item.latestMetrics?.views || 0,
+                    likes: item.latestMetrics?.likes || 0,
+                    shares: item.latestMetrics?.comments || 0,
                     valid: true, // 由於我們只顯示已批准的內容，所以都是有效的
                     thumbnail: item.thumbnailUrl || '/default-thumbnail.jpg',
                     originalUrl: item.originalUrl // 添加 originalUrl 以支持點擊跳轉
