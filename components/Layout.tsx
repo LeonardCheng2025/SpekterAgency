@@ -62,17 +62,18 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-bg">
       {/* Header - Delabs Style */}
       {showHeader && (
-        <header className="sticky top-0 z-40 backdrop-blur-lg border-b border-brand/20" style={{background: 'rgba(13, 13, 13, 0.9)'}}>
+        <header className="sticky top-0 z-40 backdrop-blur-lg border-b border-brand/20" style={{background: 'rgba(2, 7, 11, 0.9)'}}>
           <div className="container mx-auto">
             <div className="flex h-16 items-center justify-between">
               {/* Logo and Brand */}
               <div className="flex items-center space-x-6">
                 <Link href="/dashboard" className="flex items-center space-x-3">
-                  <img 
-                    src="/Header_logo.png" 
-                    alt="Ragnarok Libre"
-                    className="h-5 w-auto"
-                  />
+                  <div className="text-2xl font-bold text-white font-display">
+                    SPEKTER
+                  </div>
+                  <div className="text-lg font-medium text-brand">
+                    GAMES
+                  </div>
                 </Link>
                 
                 <div className="hidden lg:flex items-center space-x-6 ml-8 text-sm">

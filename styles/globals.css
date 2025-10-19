@@ -2,30 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Variables for Samsung theme */
+/* CSS Variables for Spekter Games theme */
 :root {
-  --bg: #fff;
-  --fg: #0A0A0A;
-  --muted: #6B7280;
-  --line: #E5E7EB;
-  --brand: #1428A0;
-  --brand-600: #0E1E78;
-  --brand-100: #EDF2FF;
-  --accent: #111827;
+  --bg: #02070B;
+  --fg: #FFFFFF;
+  --muted: #9CA3AF;
+  --line: rgba(52, 111, 196, 0.2);
+  --brand: #346FC4;
+  --brand-600: #2A5BA0;
+  --brand-100: #EBF4FF;
+  --accent: #364D8F;
+  --secondary: #3C3267;
 }
 
 @layer base {
   html {
-    font-family: "Inter", "Poppins", "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: "Orbitron", "Exo 2", "Inter", "Poppins", "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   }
   
   body {
     @apply bg-bg text-fg min-h-screen;
     line-height: 1.6;
     font-size: 16px;
-    background: radial-gradient(circle at 20% 50%, rgba(229, 57, 53, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 80% 20%, rgba(229, 57, 53, 0.05) 0%, transparent 70%),
-                linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+    background: radial-gradient(circle at 20% 50%, rgba(52, 111, 196, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(60, 50, 103, 0.05) 0%, transparent 70%),
+                linear-gradient(135deg, #02070B 0%, #364D8F 100%);
     background-attachment: fixed;
   }
   
@@ -47,13 +48,13 @@
 }
 
 @layer components {
-  /* Delabs glassmorphism card */
+  /* Spekter Games glassmorphism card */
   .samsung-card {
-    background: rgba(26, 26, 26, 0.6);
+    background: rgba(54, 77, 143, 0.6);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(52, 111, 196, 0.2);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), 0 0 20px rgba(52, 111, 196, 0.1);
     transition: all 300ms ease-out;
     overflow: hidden;
     position: relative;
@@ -66,13 +67,13 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(52, 111, 196, 0.4), transparent);
   }
   
   .samsung-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(52, 111, 196, 0.2);
+    border-color: rgba(52, 111, 196, 0.4);
   }
   
   /* Delabs-style buttons */
@@ -88,30 +89,30 @@
   }
   
   .samsung-btn-primary {
-    @apply samsung-btn bg-accent text-white hover:bg-delabs-dark-alt;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    @apply samsung-btn bg-brand text-white hover:bg-brand-600;
+    box-shadow: 0 4px 12px rgba(52, 111, 196, 0.3);
   }
   
   .samsung-btn-primary:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 16px rgba(52, 111, 196, 0.4);
     transform: translateY(-1px);
   }
   
   .samsung-btn-secondary {
     @apply samsung-btn;
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(54, 77, 143, 0.8);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(52, 111, 196, 0.3);
     color: #FFFFFF;
   }
   
   .samsung-btn-secondary:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(26, 26, 26, 0.9);
+    border-color: rgba(52, 111, 196, 0.5);
+    background: rgba(54, 77, 143, 0.9);
   }
   
   .samsung-btn-outline {
-    @apply samsung-btn bg-delabs-surface text-white border border-line hover:bg-accent;
+    @apply samsung-btn bg-spekter-surface text-white border border-brand hover:bg-accent;
   }
   
   /* Tier badges - keeping gaming context but Samsung style */
@@ -135,21 +136,21 @@
   }
   
   .platform-youtube {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(54, 77, 143, 0.8);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(52, 111, 196, 0.3);
   }
   
   .platform-facebook {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(54, 77, 143, 0.8);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(52, 111, 196, 0.3);
   }
   
   .platform-twitch {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(54, 77, 143, 0.8);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(52, 111, 196, 0.3);
   }
   
   /* Live badge */
@@ -189,15 +190,15 @@
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   }
 
-  /* Dark dropdown styling */
+  /* Spekter Games dropdown styling */
   select option {
-    background-color: #1A1A1A;
+    background-color: #364D8F;
     color: #FFFFFF;
     padding: 8px 12px;
   }
 
   select option:hover,
   select option:focus {
-    background-color: #2A2A2A;
+    background-color: #3C3267;
   }
 }

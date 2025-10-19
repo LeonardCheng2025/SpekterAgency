@@ -107,20 +107,20 @@ export default function Dashboard() {
         <DashboardSkeleton />
       ) : (
       <div className="space-y-12">
-        {/* Hero Section - Delabs Style */}
+        {/* Hero Section - Spekter Games Style */}
         <div className="relative overflow-hidden rounded-xl">
-          {/* Background with red glow and grid */}
-          <div className="absolute inset-0 bg-delabs-hero"></div>
-          <div className="absolute inset-0 bg-delabs-grid bg-grid opacity-30"></div>
-          <div className="absolute inset-0 bg-delabs-diagonal opacity-20"></div>
+          {/* Background with blue glow and grid */}
+          <div className="absolute inset-0 bg-spekter-hero"></div>
+          <div className="absolute inset-0 bg-spekter-grid bg-grid opacity-30"></div>
+          <div className="absolute inset-0 bg-spekter-diagonal opacity-20"></div>
           
-          {/* DELABS Token Background */}
-          <div className="absolute inset-0 opacity-20">
-            <img 
-              src="/DELABS.png" 
-              alt="DELABS Token"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 object-contain"
-            />
+          {/* Spekter Games Logo Background */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="text-8xl font-bold text-white font-display opacity-20">
+                SPEKTER
+              </div>
+            </div>
           </div>
           
           <div className="relative z-10 p-12 text-center text-white">
@@ -138,7 +138,7 @@ export default function Dashboard() {
                 <span className="text-white drop-shadow-lg">40</span>
                 <span className="text-brand drop-shadow-lg">K</span>
               </div>
-              <div className="text-white/80 text-lg font-bold tracking-wider mb-6">USD Worth of $DELABS</div>
+              <div className="text-white/80 text-lg font-bold tracking-wider mb-6">USD Worth of Rewards</div>
               
               <div className="text-2xl font-bold text-white mb-2 tracking-wider">
                 Prize Pool For Season {currentSeason.season}
@@ -223,8 +223,8 @@ export default function Dashboard() {
         {/* Public Leaderboard Preview */}
         <div className="relative overflow-hidden rounded-xl">
           {/* Background */}
-          <div className="absolute inset-0 bg-delabs-red-glow"></div>
-          <div className="absolute inset-0 bg-delabs-diagonal opacity-10"></div>
+          <div className="absolute inset-0 bg-spekter-blue-glow"></div>
+          <div className="absolute inset-0 bg-spekter-diagonal opacity-10"></div>
           
           <div className="samsung-card p-8">
             <div className="flex items-center justify-between mb-8">
@@ -245,26 +245,26 @@ export default function Dashboard() {
                       <div className="flex items-center space-x-6">
                         {/* Rank */}
                         <div className="flex-shrink-0">
-                          <div className="w-8 h-8 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded-full"></div>
+                          <div className="w-8 h-8 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded-full"></div>
                         </div>
                         
                         {/* Avatar */}
                         <div className="flex-shrink-0">
-                          <div className="w-16 h-16 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded-full"></div>
+                          <div className="w-16 h-16 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded-full"></div>
                         </div>
                         
                         {/* Info */}
                         <div className="flex-1 space-y-2">
-                          <div className="w-32 h-6 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded"></div>
+                          <div className="w-32 h-6 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded"></div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-16 h-5 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded-full"></div>
-                            <div className="w-12 h-5 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded-full"></div>
+                            <div className="w-16 h-5 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded-full"></div>
+                            <div className="w-12 h-5 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded-full"></div>
                           </div>
                         </div>
                         
                         {/* Points */}
                         <div className="flex-shrink-0">
-                          <div className="w-24 h-8 bg-gradient-to-r from-delabs-surface/30 via-delabs-surface/50 to-delabs-surface/30 animate-pulse rounded-lg"></div>
+                          <div className="w-24 h-8 bg-gradient-to-r from-spekter-surface/30 via-spekter-surface/50 to-spekter-surface/30 animate-pulse rounded-lg"></div>
                         </div>
                       </div>
                     </div>

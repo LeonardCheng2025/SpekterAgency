@@ -39,8 +39,8 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Login - Clutch</title>
-        <meta name="description" content="Login to Clutch platform" />
+        <title>Login - Spekter Games</title>
+        <meta name="description" content="Login to Spekter Games platform" />
       </Head>
 
       <div className="min-h-screen bg-bg">
@@ -48,11 +48,14 @@ export default function Login() {
         <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-12">
           <div className="samsung-card p-8 max-w-md w-full">
             <div className="text-center mb-8">
-              <img 
-                src="/Header_logo.png" 
-                alt="Ragnarok Libre"
-                className="h-8 w-auto mx-auto mb-6"
-              />
+              <div className="flex items-center justify-center space-x-3 mb-6">
+                <div className="text-3xl font-bold text-white font-display">
+                  SPEKTER
+                </div>
+                <div className="text-xl font-medium text-brand">
+                  GAMES
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -92,7 +95,7 @@ export default function Login() {
         <footer className="bg-bg border-t border-brand/20 mt-auto relative overflow-hidden">
           <div className="relative z-10 container mx-auto px-4 py-12">
             <div className="text-center text-sm text-white/40 font-medium tracking-wide">
-              © 2025 Clutch. All rights reserved.
+              © 2025 Spekter Games. All rights reserved.
             </div>
           </div>
         </footer>
