@@ -26,15 +26,13 @@ export default function Login() {
   }, [router.query.error])
 
   const handleYouTubeLogin = () => {
-    // 重定向到 Railway 後端處理 OAuth
-    const backendUrl = 'https://ragnaroklibre-clutch-production.up.railway.app'
-    window.location.href = `${backendUrl}/api/connect/youtube`
+    // Mock login - redirect to dashboard
+    router.push('/dashboard')
   }
 
   const handleTwitchLogin = () => {
-    // 重定向到 Railway 後端處理 OAuth
-    const backendUrl = 'https://ragnaroklibre-clutch-production.up.railway.app'
-    window.location.href = `${backendUrl}/api/connect/twitch`
+    // Mock login - redirect to dashboard
+    router.push('/dashboard')
   }
 
 

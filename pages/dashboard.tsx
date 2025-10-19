@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import CreatorCard from '@/components/CreatorCard';
 import Layout from '@/components/Layout';
 import { StarIcon } from '@heroicons/react/24/outline';
-import { mockCreators, mockAnnouncements, currentSeason } from '@/data/mockData';
+import { mockCreators, mockAnnouncements, currentSeason, sortedCreators } from '@/data/mockData';
 import { useAuth } from '../lib/hooks/useAuth';
 import { DashboardSkeleton, TopCreatorsSkeleton } from '@/components/SkeletonLoader';
 
@@ -40,29 +40,17 @@ export default function Dashboard() {
   const [creatorsLoading, setCreatorsLoading] = useState(true);
   const [dashboardLoading, setDashboardLoading] = useState(true);
 
-  // Fetch top creators
+  // Use mock data for top creators
   useEffect(() => {
-    const fetchTopCreators = async () => {
-      try {
-        setCreatorsLoading(true);
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://ragnaroklibre-clutch-production.up.railway.app';
-        const response = await fetch(`${backendUrl}/api/leaderboard/creators`);
-        
-        if (response.ok) {
-          const data = await response.json();
-          // Get top 10 creators
-          setTopCreators(data.creators.slice(0, 10));
-        }
-      } catch (error) {
-        console.error('Error fetching top creators:', error);
-        // Fallback to empty array if fetch fails
-        setTopCreators([]);
-      } finally {
-        setCreatorsLoading(false);
-      }
-    };
-
-    fetchTopCreators();
+    setCreatorsLoading(true);
+    
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      // Get top 10 creators from sorted leaderboard
+      const top10Creators = sortedCreators.slice(0, 10);
+      setTopCreators(top10Creators);
+      setCreatorsLoading(false);
+    }, 500);
   }, []);
 
   useEffect(() => {

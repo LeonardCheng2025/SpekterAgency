@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Creator } from '@/data/mockData';
 
 interface CreatorCardProps {
@@ -33,8 +32,7 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
 
   if (compact) {
     return (
-      <Link href={`/creator/${creator.id}`}>
-        <div className="samsung-card p-4 cursor-pointer">
+      <div className="samsung-card p-4">
           <div className="flex items-center space-x-4">
             <div className="relative flex-shrink-0">
               {rank && (
@@ -79,13 +77,11 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
 
         </div>
         </div>
-      </Link>
     );
   }
 
   return (
-    <Link href={`/creator/${creator.id}`}>
-      <div className="samsung-card p-6 cursor-pointer">
+    <div className="samsung-card p-6">
         <div className="flex items-start space-x-6">
           <div className="relative flex-shrink-0">
             {rank && (
@@ -133,6 +129,5 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
 
         </div>
       </div>
-    </Link>
   );
 }
