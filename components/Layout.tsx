@@ -89,14 +89,6 @@ export default function Layout({ children }: LayoutProps) {
               {/* Navigation */}
               <nav className="flex items-center space-x-8">
                 <div className="hidden md:flex items-center space-x-8 text-sm">
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdlFb-g9-Aoz8phRuM_5UzVIvdI74q6u5X8o-oMhNvl88_W6Q/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white px-4 py-2 rounded-lg font-bold tracking-wide transition-all duration-300 text-sm border border-orange-400/50 hover:border-orange-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105 transform"
-                  >
-                    Apply Now
-                  </a>
                   <Link 
                     href="/dashboard"
                     className={`font-bold tracking-wide transition-colors ${
