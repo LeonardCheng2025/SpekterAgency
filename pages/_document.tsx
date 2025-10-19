@@ -5,8 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Basic Meta Tags */}
-        <meta name="description" content="Join Spekter Games - The ultimate creator leaderboard platform. Compete with content creators worldwide, earn rewards, and track your performance with integrated YouTube and Twitch analytics." />
-        <meta name="keywords" content="Spekter Games, creator leaderboard, gaming content, YouTube creators, Twitch streamers, gaming rewards, content creator platform, gaming competition" />
+        <meta name="description" content="Spekter Agency - Next-gen rogue-lite survivor game on Telegram. Hunt spirits, build combos, earn Spark points. Web2 gameplay meets Web3 rewards. Play now on Telegram!" />
+        <meta name="keywords" content="Spekter Agency, Spekter Games, rogue-lite, survivor game, Telegram game, Web3 gaming, blockchain game, mobile game, spirit hunting, Spark points, next-gen gaming" />
         <meta name="author" content="Spekter Games" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="en-US" />
@@ -20,24 +20,24 @@ export default function Document() {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Spekter Games - Creator Leaderboard & Rewards Platform" />
-        <meta property="og:description" content="Join the ultimate gaming creator competition. Submit content, refer players, and earn rewards based on your leaderboard ranking." />
+        <meta property="og:title" content="Spekter Agency - Next-Gen Rogue-lite Survivor Game on Telegram" />
+        <meta property="og:description" content="Hunt spirits, build combos, earn Spark points. Spekter Agency combines Web2 gameplay with Web3 rewards. Play now on Telegram - no download required!" />
         <meta property="og:image" content="https://spekter-agency.vercel.app/1200x630.png" />
         <meta property="og:url" content="https://spekter-agency.vercel.app" />
-        <meta property="og:site_name" content="Spekter Games" />
+        <meta property="og:site_name" content="Spekter Agency" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Spekter Games - Creator Leaderboard & Rewards Platform" />
-        <meta name="twitter:description" content="Join the ultimate gaming creator competition. Submit content, refer players, and earn rewards based on your leaderboard ranking." />
+        <meta name="twitter:title" content="Spekter Agency - Next-Gen Rogue-lite Survivor Game on Telegram" />
+        <meta name="twitter:description" content="Hunt spirits, build combos, earn Spark points. Spekter Agency combines Web2 gameplay with Web3 rewards. Play now on Telegram - no download required!" />
         <meta name="twitter:image" content="https://spekter-agency.vercel.app/1200x630.png" />
         
         {/* Theme */}
         <meta name="theme-color" content="#346FC4" />
         <meta name="msapplication-TileColor" content="#346FC4" />
-        <meta name="apple-mobile-web-app-title" content="Spekter Games" />
-        <meta name="application-name" content="Spekter Games" />
+        <meta name="apple-mobile-web-app-title" content="Spekter Agency" />
+        <meta name="application-name" content="Spekter Agency" />
         
         {/* Structured Data */}
         <script
@@ -45,21 +45,24 @@ export default function Document() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "Spekter Games",
-              "description": "Creator leaderboard and rewards platform for gaming content creators",
+              "@type": "VideoGame",
+              "name": "Spekter Agency",
+              "description": "Next-gen rogue-lite survivor game on Telegram. Hunt spirits, build combos, earn Spark points. Web2 gameplay meets Web3 rewards.",
               "url": "https://spekter-agency.vercel.app",
-              "applicationCategory": "GameApplication",
-              "operatingSystem": "Web Browser",
+              "applicationCategory": "Game",
+              "operatingSystem": "Telegram, Mobile",
+              "genre": "Rogue-lite, Survivor, Action",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "USD"
               },
-              "creator": {
+              "publisher": {
                 "@type": "Organization",
                 "name": "Spekter Games"
-              }
+              },
+              "gamePlatform": "Telegram",
+              "playMode": "SinglePlayer"
             })
           }}
         />

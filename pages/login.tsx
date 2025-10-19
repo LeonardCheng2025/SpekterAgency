@@ -39,8 +39,8 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Login - Spekter Games</title>
-        <meta name="description" content="Login to Spekter Games platform" />
+        <title>Play Spekter Agency - Telegram Game</title>
+        <meta name="description" content="Start your spirit hunting adventure in Spekter Agency. Play the rogue-lite survivor game on Telegram and earn Spark points!" />
       </Head>
 
       <div className="min-h-screen bg-bg relative overflow-hidden">
@@ -69,31 +69,28 @@ export default function Login() {
             <div className="space-y-4">
               <button
                 onClick={handleYouTubeLogin}
-                className="w-full flex items-center justify-center space-x-3 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-md transition-colors duration-fast min-h-[48px]"
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-blue-500/25"
               >
-                <img src="/youtube.png" alt="YouTube" className="w-6 h-4" />
-                <span>Login with YouTube</span>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 3.46-2.128 4.692-1.232 1.232-2.834 1.959-4.692 2.128-1.858.169-3.46.896-4.692 2.128-1.232 1.232-1.959 2.834-2.128 4.692-.169 1.858-.896 3.46-2.128 4.692-1.232 1.232-2.834 1.959-4.692 2.128C1.858 22.431.256 23.158-1.602 22.989c-1.858-.169-3.46-.896-4.692-2.128-1.232-1.232-1.959-2.834-2.128-4.692-.169-1.858-.896-3.46-2.128-4.692-1.232-1.232-2.834-1.959-4.692-2.128C-1.858 1.569-.256.842 1.602 1.011c1.858.169 3.46.896 4.692 2.128 1.232 1.232 1.959 2.834 2.128 4.692.169 1.858.896 3.46 2.128 4.692 1.232 1.232 2.834 1.959 4.692 2.128z"/>
+                </svg>
+                <span>Play on Telegram</span>
               </button>
 
               <button
                 onClick={handleTwitchLogin}
-                className="w-full flex items-center justify-center space-x-3 bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-4 rounded-md transition-colors duration-fast min-h-[48px]"
+                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-brand to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium py-3 px-4 rounded-md transition-all duration-fast min-h-[48px] shadow-lg hover:shadow-brand/25"
               >
-                <img src="/twitch.png" alt="Twitch" className="w-5 h-5" />
-                <span>Login with Twitch</span>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 6.5h3v6h-3v-6zm-3 0h3v6h-3v-6zm6 0h3v6h-3v-6z"/>
+                </svg>
+                <span>Start Spirit Hunting</span>
               </button>
             </div>
 
             <div className="mt-6 text-center">
               <p className="text-xs text-muted">
-                By continuing, you agree to our{' '}
-                <Link href="/terms" className="text-primary hover:text-primary/80 underline">
-                  Terms of Service
-                </Link>
-                {' '}and{' '}
-                <Link href="/privacy" className="text-primary hover:text-primary/80 underline">
-                  Privacy Policy
-                </Link>
+                No download required • Play directly on Telegram • Earn Spark points while playing
               </p>
             </div>
             </div>

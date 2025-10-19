@@ -14,8 +14,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
   const getRegionBadge = (region: string) => {
     const baseClasses = "px-3 py-1 rounded-md text-sm font-semibold";
     switch (region) {
-      case 'Taiwan': return `${baseClasses} bg-blue-600 text-white`;
-      case 'Thailand': return `${baseClasses} bg-green-600 text-white`;
+      case 'Global': return `${baseClasses} bg-blue-600 text-white`;
+      case 'Asia': return `${baseClasses} bg-green-600 text-white`;
+      case 'Americas': return `${baseClasses} bg-purple-600 text-white`;
       default: return `${baseClasses} bg-gray-500 text-white`;
     }
   };
@@ -23,9 +24,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
   const getPlatformBadge = (platform: string) => {
     const baseClasses = "platform-badge";
     switch (platform) {
-      case 'YouTube': return `${baseClasses} platform-youtube`;
-      case 'Facebook': return `${baseClasses} platform-facebook`;
-      case 'Twitch': return `${baseClasses} platform-twitch`;
+      case 'Telegram': return `${baseClasses} platform-youtube`;
+      case 'Mobile': return `${baseClasses} platform-facebook`;
+      case 'Web': return `${baseClasses} platform-twitch`;
       default: return `${baseClasses} bg-gray-100 text-gray-700 border-gray-300`;
     }
   };
@@ -72,9 +73,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           <div className="flex-shrink-0">
             <div className="text-right">
               <div className="text-2xl font-bold text-brand mb-1">
-                {creator.leaderboardScore?.toLocaleString() || '0'}
+                {creator.sparkPoints?.toLocaleString() || '0'}
               </div>
-              <div className="text-sm text-fg-muted">Total Score</div>
+              <div className="text-sm text-fg-muted">Spark Points</div>
             </div>
           </div>
 
@@ -127,9 +128,9 @@ export default function CreatorCard({ creator, rank, compact = false }: CreatorC
           <div className="flex-shrink-0">
             <div className="text-right">
               <div className="text-3xl font-bold text-brand mb-1">
-                {creator.leaderboardScore?.toLocaleString() || '0'}
+                {creator.sparkPoints?.toLocaleString() || '0'}
               </div>
-              <div className="text-sm text-fg-muted">Total Score</div>
+              <div className="text-sm text-fg-muted">Spark Points</div>
             </div>
           </div>
 

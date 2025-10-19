@@ -1,19 +1,19 @@
 export interface Creator {
   id: string;
   name: string;
-  platforms: ('YouTube' | 'Facebook' | 'Twitch')[];
-  followers: number;
-  supporters: number;
-  contentPoints: number;
-  referralPoints: number;
+  platforms: ('Telegram' | 'Mobile' | 'Web')[];
+  spiritsHunted: number;
+  missionsCompleted: number;
+  sparkPoints: number;
+  comboPoints: number;
   iapSpending: number;
   onchainSpending: number;
   newPlayers: number;
   totalPoints: number;
-  tier: 'Best' | 'Partner' | 'Normal';
+  tier: 'Master' | 'Expert' | 'Hunter';
   isLive: boolean;
   avatar: string;
-  region: 'Taiwan' | 'Thailand';
+  region: 'Global' | 'Asia' | 'Americas';
   leaderboardScore?: number;
   referralCount?: number;
   purchaseAmountTotal?: number;
@@ -21,14 +21,14 @@ export interface Creator {
 
 export interface ContentItem {
   id: string;
-  platform: 'YouTube' | 'Facebook' | 'Twitch';
-  type: 'Edited Video' | 'Stream' | 'Short';
+  platform: 'Telegram' | 'Mobile' | 'Web';
+  type: 'Spirit Hunt' | 'Mission' | 'Combo';
   title: string;
   date: string;
   duration: string;
-  views: number;
-  likes: number;
-  comments: number;
+  spiritsHunted: number;
+  sparkEarned: number;
+  combos: number;
   valid: boolean;
   thumbnail: string;
 }
@@ -1028,13 +1028,13 @@ export const mockAnnouncements: Announcement[] = [
   }
 ];
 
-// Current season/round info
+// Current game version info
 export const currentSeason = {
-  season: "Beta",
+  season: "Launch",
   round: 1,
-  startDate: "2025-09-15",
-  endDate: "2025-10-10",
-  daysLeft: "Ongoing"
+  startDate: "2025-01-15",
+  endDate: "Ongoing",
+  daysLeft: "Live Now"
 };
 
 // Calculate total points as simple sum
